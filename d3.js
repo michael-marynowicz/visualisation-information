@@ -8,10 +8,15 @@ let genreParAnnee = d3.csv("genreParAnnee.csv");*/
 const margin = {left: 50, top: 20, bottom: 20, right: 20}; // the margins of the chart
 const width = window.innerWidth; // the width of the svg
 const height = window.innerHeight; // the height of the svg
+var div = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
 
 let svg = d3.select("body").append("svg")
     .attr('width', width + margin.left + margin.right)
     .attr('height', height + margin.top + margin.bottom)
+
+
 
 let parseRowGenreParAnnee = (d) => {
     d.publicationDate = +d.publicationDate;
@@ -37,7 +42,7 @@ function drawLineChart(data){
         x: x(xValue(d)),
         y: y(yValue(d)),
     }));
-
+//'#'+Math.floor(Math.random()*16777215).toString(16);
 
     svg.selectAll('circle')
         .data(marks)
@@ -45,7 +50,22 @@ function drawLineChart(data){
         .attr('cx', d => d.x)
         .attr('cy', d => d.y)
         .attr('r', 5)
-    ;
+        .style("fill", d => colors.length >0 ? applyColor(marks,d) : "#000000")
+        .on("mouseover", function(event,d) {
+            console.log(event.pageX)
+            div.html(d)
+                .style("left", (event.pageX) + "px")
+                .style("top", (event.pageY - 28) + "px")
+                .style("opacity", 1)
+                .html(data[marks.indexOf(d)]["genre"]);
+        })
+        .on("mouseout", function() {
+            div.transition()
+                .duration(500)
+                .style("opacity", 0);
+        });
+
+
 
     svg.append('g')
         .attr('transform',`translate(${margin.left},0)`)
@@ -56,6 +76,13 @@ function drawLineChart(data){
         .call(d3.axisBottom(x));
 
 
+
+}
+
+function applyColor(marks,d){
+    const index = marks.indexOf(d)
+    d.genre = data[index]["genre"]
+    return colors[genreToPrint.indexOf(d.genre)]
 }
 
 let classement = async () => {
@@ -67,19 +94,19 @@ classement();
 
 
 function stickyheaddsadaer(genre,box){
-    console.log(genre)
     if (box.checked){
-        console.log(genre)
         genreToPrint.push(genre);
+        colors.push('#'+Math.floor(Math.random()*16777215).toString(16))
     }
     else {
         let index = genreToPrint.indexOf(genre)
         genreToPrint.splice(index,1);
+        colors.splice(index,1);
     }
 
     if (genreToPrint.length!==0){
         data = copieData.filter(d => genreToPrint.includes(d["genre"]))
-        console.log(data.filter(d => d["genre"]))
+
     }
     else{
         data = copieData;
@@ -93,6 +120,7 @@ function stickyheaddsadaer(genre,box){
 }
 
 let genreToPrint = [];
+let colors = [];
 let data;
 let copieData;
 
