@@ -1,19 +1,12 @@
-//import DrawLineChart from "./DrawLineChart.js"
+import DrawLineChart from "./DrawLineChart.js"
 
 
-// For map
+
 const margin = {left: 50, top: 20, bottom: 20, right: 20}; // the margins of the chart
 let width = window.innerWidth; // the width of the svg
 let height = window.innerHeight; // the height of the svg
 let data;
 
-
-// For lineChart
-
-let genreToPrint = [];
-let colors2 = [];
-let copieData;
-let allGenre=[];
 
 
 let svg = d3.select("body").append("svg")
@@ -142,9 +135,9 @@ let locationInfo = async () => {
                 tooltip.attr("transform", "translate(" + mouse[0] + "," + (mouse[1] - 75) + ")");
             })
             .on('click',function(){
-                //let drawLineChart = new DrawLineChart(svg);
-                //drawLineChart.genreParAnnee(true)
-                genreParAnnee(true)
+                let drawLineChart = new DrawLineChart(svg);
+                drawLineChart.genreParAnnee(true)
+                //genreParAnnee(true)
             })
         ;
     });
@@ -198,163 +191,3 @@ function getAllMaxWithoutInconnu(data){
         }
     })
 }
-
-
-var div = d3.select("body").append("div")
-    .attr("class", "tooltip")
-    .style("opacity", 0);
-
-
-let parseRowGenreParAnnee = (d) => {
-    d.publicationDate = +d.publicationDate;
-    d.count = +d.count;
-    return d;
-}
-
-const xValue = (d) => d.publicationDate
-const yValue = (d) => d.count
-
-function drawLineChart(data, toMap = false){
-    if(toMap) {
-        svg.remove();
-        svg = d3.select("body").append("svg")
-            .attr('width', width + margin.left + margin.right)
-            .attr('height', height + margin.top + margin.bottom)
-    }
-    const x = d3.scaleLinear()
-        .domain(d3.extent(data, xValue))
-        .range([margin.left, width- margin.right])
-    ;
-
-    const y = d3.scaleLinear()
-        .domain(d3.extent(data, yValue))
-        .range([height-margin.bottom, margin.top])
-    ;
-
-    const marks = data.map(d => ({
-        x: x(xValue(d)),
-        y: y(yValue(d)),
-    }));
-//'#'+Math.floor(Math.random()*16777215).toString(16);
-
-    svg.selectAll('circle')
-        .data(marks)
-        .join('circle')
-        .attr('cx', d => d.x)
-        .attr('cy', d => d.y)
-        .attr('r', 5)
-        .style("fill", d => colors2.length >0 ? applyColor(marks,d) : "#000000")
-        .on("mouseover", function(event,d) {
-            div.html(d)
-                .style("left", (event.pageX) + "px")
-                .style("top", (event.pageY - 28) + "px")
-                .style("opacity", 1)
-                .html(data[marks.indexOf(d)]["genre"]);
-        })
-        .on("mouseout", function() {
-            div.transition()
-                .duration(500)
-                .style("opacity", 0);
-        })
-    ;
-
-
-
-    svg.append('g')
-        .attr('transform',`translate(${margin.left},0)`)
-        .call(d3.axisLeft(y));
-
-    svg.append('g')
-        .attr('transform',`translate(0,${height-margin.bottom})`)
-        .call(d3.axisBottom(x));
-
-
-
-}
-
-function applyColor(marks,d){
-    const index = marks.indexOf(d)
-    d.genre = data[index]["genre"]
-    return colors2[genreToPrint.indexOf(d.genre)]
-}
-
-function find5max(data){
-    let maxIndex = ["","","","",""];
-    let maxValue = [0,0,0,0,0];
-
-    data.forEach(d => {
-        let min = Math.min.apply(Math,maxValue)
-        if (d.count > min && !maxIndex.includes(d.genre)) {
-            maxIndex[maxValue.indexOf(min)]=d.genre;
-            maxValue[maxValue.indexOf(min)]=d.count;
-
-        }
-    });
-    return maxIndex;
-}
-
-let classement = async () => {
-    let data = await d3.csv("classement.csv");
-
-}
-
-
-function stickyheaddsadaer(genre,box){
-    if (box.checked){
-        genreToPrint.push(genre);
-        colors2.push('#'+Math.floor(Math.random()*16777215).toString(16))
-    }
-    else {
-        let index = genreToPrint.indexOf(genre)
-        genreToPrint.splice(index,1);
-        colors2.splice(index,1);
-    }
-
-    if (genreToPrint.length!==0){
-        data = copieData.filter(d => genreToPrint.includes(d["genre"]))
-
-    }
-    else{
-        data = copieData;
-    }
-    svg.remove();
-    svg = d3.select("body").append("svg")
-        .attr('width', width + margin.left + margin.right)
-        .attr('height', height + margin.top + margin.bottom)
-    drawLineChart(data);
-
-}
-
-let genreParAnnee = async (toMap) => {
-    width = window.innerWidth-500; // the width of the svg
-    height = window.innerHeight-200; // the height of the svg
-    data = await d3.csv("genreParAnnee2.csv", parseRowGenreParAnnee);
-    copieData = Array.from(data);
-
-    allGenre = new Set();
-    data.map(d => {
-        d.genre = d.genre.replace(/\s/g, '-')
-        allGenre.add(d.genre)
-    });
-    allGenre = find5max(data);
-
-
-    const html = Array.from(allGenre).map(genre => `<label for="genre-${genre}">
-                <input type="checkbox" name="genre" id="genre-${genre}" onchange=stickyheaddsadaer(\"${genre}",this)>${genre}
-            </label>`
-    ).join(' ');
-
-
-
-    document.querySelector("#List").innerHTML += `<div>${html}</div>`
-
-
-    data = data.filter(d => allGenre.includes(d["genre"]))
-
-    drawLineChart(data,toMap);
-
-};
-
-
-
-

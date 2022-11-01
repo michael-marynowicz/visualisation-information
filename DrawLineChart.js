@@ -3,25 +3,24 @@ export default class DrawLineChart {
 
     constructor(svg) {
         this.svg = svg;
+
+        this.margin = {left: 50, top: 20, bottom: 20, right: 20}; // the margins of the chart
+
+        this.width = window.innerWidth - 500; // the width of the svg
+
+        this.height = window.innerHeight - 200; // the height of the svg
+
+        this.genreToPrint = [];
+
+        this.colors = [];
+
+        this.div = d3.select("body").append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0);
     }
 
-    margin = {left: 50, top: 20, bottom: 20, right: 20}; // the margins of the chart
 
-    width = window.innerWidth - 500; // the width of the svg
 
-    height = window.innerHeight - 200; // the height of the svg
-
-    genreToPrint = [];
-
-    colors = [];
-
-    data;
-
-    copieData;
-
-    div = d3.select("body").append("div")
-        .attr("class", "tooltip")
-        .style("opacity", 0);
 
 
     parseRowGenreParAnnee = (d) => {
@@ -93,7 +92,7 @@ export default class DrawLineChart {
 
     applyColor(marks, d) {
         const index = marks.indexOf(d)
-        d.genre = data[index]["genre"]
+        d.genre = this.data[index]["genre"]
         return this.colors[this.genreToPrint.indexOf(d.genre)]
     }
 
@@ -136,13 +135,12 @@ export default class DrawLineChart {
         this.svg = d3.select("body").append("svg")
             .attr('width', this.width + this.margin.left + this.margin.right)
             .attr('height', this.height + this.margin.top + this.margin.bottom)
-        this.drawLineChart(data);
+        this.drawLineChart(this.data);
     }
 
 
 
     genreParAnnee = async (toMap) => {
-
         this.data = await d3.csv("genreParAnnee2.csv", this.parseRowGenreParAnnee);
         this.copieData = Array.from(this.data);
 
@@ -152,13 +150,7 @@ export default class DrawLineChart {
             this.allGenre.add(d.genre)
         });
         this.allGenre = this.find5max(this.data);
-        /*const html = Array.from(this.allGenre).map(genre => `<label for="genre-${genre}">
-                <input type="checkbox" name="genre" id="genre-${genre}" onchange= this.stickyheaddsadaer(\"${genre}",this)>${genre}   
-            </label>`
-        ).join(' ');
 
-*/
-        console.log(this.data)
         let container = document.createElement("div");
         Array.from(this.allGenre).forEach((genre) => {
             let input = document.createElement("input");
@@ -170,18 +162,19 @@ export default class DrawLineChart {
             label.setAttribute("for", `genre-${genre}`);
             label.appendChild(input);
             label.innerHTML += genre;
-            label.onchange = () => this.stickyheaddsadaer(genre, input);
+            label.onchange = () => {
+                input.checked = !input.checked;
+                this.stickyheaddsadaer(genre, input);
+            };
 
             container.appendChild(label);
         });
 
         document.querySelector("#List").appendChild(container);
 
-
         this.data = this.data.filter(d => this.allGenre.includes(d["genre"]))
 
-        this.drawLineChart(this.data, toMap);
-
+        this.drawLineChart(this.data,toMap);
     };
 //genreParAnnee();
 
