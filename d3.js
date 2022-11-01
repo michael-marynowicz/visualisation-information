@@ -123,6 +123,7 @@ let genreToPrint = [];
 let colors = [];
 let data;
 let copieData;
+let allGenre;
 
 let genreParAnnee = async () => {
     data = await d3.csv("genreParAnnee2.csv", parseRowGenreParAnnee);
@@ -150,7 +151,4 @@ let genreParAnnee = async () => {
 
 };
 genreParAnnee();
-
-
-
 
