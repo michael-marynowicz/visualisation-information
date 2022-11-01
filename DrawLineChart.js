@@ -141,7 +141,7 @@ export default class DrawLineChart {
 
 
     genreParAnnee = async (toMap) => {
-        this.data = await d3.csv("genreParAnnee2.csv", this.parseRowGenreParAnnee);
+        this.data = await d3.csv("genreParAnnee.csv", this.parseRowGenreParAnnee);
         this.copieData = Array.from(this.data);
 
         this.allGenre = new Set();

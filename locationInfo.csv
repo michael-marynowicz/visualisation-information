@@ -1,0 +1,579 @@
+"countryCode","countryName","genre","count"
+"AR","Argentina","Inconnu",10
+"AR","Argentina","Rock",3
+"AT","Austria","Chanson",1
+"AT","Austria","Dark Ambient",1
+"AT","Austria","Dark Metal",2
+"AT","Austria","Doom Metal",1
+"AT","Austria","Folk Metal",2
+"AT","Austria","Folk Rock",2
+"AT","Austria","Gothic Metal",3
+"AT","Austria","Inconnu",1
+"AT","Austria","Modern Classical",1
+"AT","Austria","Neofolk",2
+"AT","Austria","Neue Deutsche H&#xE4;rte",1
+"AT","Austria","Symphonic Metal",1
+"AU","Australia","Alternative Metal",1
+"AU","Australia","Alternative Rock",2
+"AU","Australia","Americana",1
+"AU","Australia","Australian Hip Hop",6
+"AU","Australia","Comedy",1
+"AU","Australia","Country",1
+"AU","Australia","Grindcore",1
+"AU","Australia","Inconnu",8
+"AU","Australia","Indie",1
+"AU","Australia","Indie Rock",1
+"AU","Australia","Jazz",1
+"AU","Australia","Melodic Death Metal",1
+"AU","Australia","Pop",5
+"AU","Australia","Pop Punk",2
+"AU","Australia","Punk Rock",1
+"AU","Australia","Rock",3
+"BE","Belgium","Dark Electro",2
+"BE","Belgium","Doom Metal",1
+"BE","Belgium","Folk",1
+"BE","Belgium","Inconnu",5
+"BE","Belgium","Metalcore",1
+"BE","Belgium","Pop",5
+"BE","Belgium","RIO",3
+"BE","Belgium","Rock",1
+"BR","Brazil","Children&apos;s Music",1
+"BR","Brazil","Death Metal",3
+"BR","Brazil","Folk Metal",4
+"BR","Brazil","Forr&#xF3;",1
+"BR","Brazil","Gothic Metal",2
+"BR","Brazil","Heavy Metal",8
+"BR","Brazil","Inconnu",10
+"BR","Brazil","MPB",9
+"BR","Brazil","Pop",1
+"BR","Brazil","Rock",5
+"CA","Canada","Alternative Rock",2
+"CA","Canada","Avant-garde Metal",3
+"CA","Canada","Folk",1
+"CA","Canada","Inconnu",6
+"CA","Canada","Indie Pop",3
+"CA","Canada","Indie Rock",2
+"CA","Canada","Jazz",1
+"CA","Canada","Pop",1
+"CA","Canada","Rock",2
+"CA","Canada","Techno",1
+"CL","Chile","Doom Metal",1
+"CL","Chile","Folk Metal",1
+"CL","Chile","Inconnu",5
+"CL","Chile","Rock",1
+"CZ","Czech Republic","Inconnu",2
+"CZ","Czech Republic","Punk Rock",2
+"CZ","Czech Republic","World Music",6
+"DE","Germany","Alternative Metal",2
+"DE","Germany","Alternative Rock",6
+"DE","Germany","Avant-garde",1
+"DE","Germany","Black Metal",4
+"DE","Germany","Chanson",20
+"DE","Germany","Country",1
+"DE","Germany","Dance",2
+"DE","Germany","Dark Ambient",3
+"DE","Germany","Dark Wave",1
+"DE","Germany","Death Metal",6
+"DE","Germany","Deutschrock",2
+"DE","Germany","EBM",1
+"DE","Germany","Electro",6
+"DE","Germany","Electronic",7
+"DE","Germany","Electronic Rock",1
+"DE","Germany","Electronicore",3
+"DE","Germany","Electropop",1
+"DE","Germany","Folk",3
+"DE","Germany","Folk Metal",2
+"DE","Germany","Folk Rock",9
+"DE","Germany","Futurepop",1
+"DE","Germany","Gothic",4
+"DE","Germany","Gothic Metal",2
+"DE","Germany","Gothic Rock",1
+"DE","Germany","Hard Rock",8
+"DE","Germany","Heavy Metal",7
+"DE","Germany","Inconnu",117
+"DE","Germany","Indie",1
+"DE","Germany","Indie Pop",4
+"DE","Germany","Indie Rock",2
+"DE","Germany","Industrial",4
+"DE","Germany","Industrial Metal",4
+"DE","Germany","Jazz",2
+"DE","Germany","Medieval",5
+"DE","Germany","Metalcore",2
+"DE","Germany","Minimal",2
+"DE","Germany","Neue Deutsche H&#xE4;rte",10
+"DE","Germany","New Wave",1
+"DE","Germany","Piano Rock",1
+"DE","Germany","Pop",9
+"DE","Germany","Pop Rock",1
+"DE","Germany","Post-Hardcore",1
+"DE","Germany","Power Metal",10
+"DE","Germany","Progressive Metal",9
+"DE","Germany","Progressive Rock",5
+"DE","Germany","Punk Rock",4
+"DE","Germany","Rock",12
+"DE","Germany","Schlager",21
+"DE","Germany","Thrash Metal",1
+"DE","Germany","Trip Hop",1
+"DE","Germany","Viking Metal",5
+"DK","Denmark","Electronic Rock",1
+"DK","Denmark","Folk",1
+"DK","Denmark","Folk Metal",2
+"DK","Denmark","Heavy Metal",3
+"DK","Denmark","Inconnu",6
+"DK","Denmark","Pop",1
+"EE","Estonia","Indie Pop",5
+"EE","Estonia","Neofolk",1
+"ES","Spain","Gothic Metal",1
+"ES","Spain","Inconnu",7
+"ES","Spain","Indie Pop",2
+"ES","Spain","R&amp;B",1
+"ES","Spain","Symphonic Metal",2
+"FI","Finland","Death Metal",1
+"FI","Finland","Gothic Metal",1
+"FI","Finland","Heavy Metal",2
+"FI","Finland","Hip Hop",5
+"FI","Finland","Inconnu",44
+"FI","Finland","Industrial",2
+"FI","Finland","Industrial Metal",3
+"FI","Finland","Power Metal",2
+"FI","Finland","Progressive Rock",1
+"FI","Finland","Punk Rock",1
+"FI","Finland","Rock",6
+"FI","Finland","Viking Metal",1
+"FO","Faroe Islands","Folk Metal",1
+"FO","Faroe Islands","Viking Metal",1
+"FR","France","Black Metal",3
+"FR","France","Electronic",1
+"FR","France","Francophone",12
+"FR","France","French Pop",5
+"FR","France","Hip Hop",1
+"FR","France","Inconnu",26
+"FR","France","Indie",1
+"FR","France","Pop",3
+"FR","France","Reggae",2
+"FR","France","Rock",8
+"FR","France","World Music",1
+"GB","United Kingdom","Alternative Rock",5
+"GB","United Kingdom","Blues",1
+"GB","United Kingdom","Classical",1
+"GB","United Kingdom","Country",1
+"GB","United Kingdom","Dance",1
+"GB","United Kingdom","Death Metal",1
+"GB","United Kingdom","Electronic",2
+"GB","United Kingdom","Electronica",1
+"GB","United Kingdom","Folk",3
+"GB","United Kingdom","Folk Metal",1
+"GB","United Kingdom","Folk Rock",1
+"GB","United Kingdom","Folktronica",4
+"GB","United Kingdom","Gothic Rock",1
+"GB","United Kingdom","Hard Rock",12
+"GB","United Kingdom","Heavy Metal",2
+"GB","United Kingdom","Hip Hop",1
+"GB","United Kingdom","Inconnu",40
+"GB","United Kingdom","Indie Rock",7
+"GB","United Kingdom","Industrial",1
+"GB","United Kingdom","Industrial Rock",2
+"GB","United Kingdom","Jazz",2
+"GB","United Kingdom","Neofolk",2
+"GB","United Kingdom","New Wave",3
+"GB","United Kingdom","Pop",17
+"GB","United Kingdom","Post-Hardcore",2
+"GB","United Kingdom","Post-Punk",3
+"GB","United Kingdom","Progressive Metal",1
+"GB","United Kingdom","Progressive Rock",16
+"GB","United Kingdom","Punk Rock",10
+"GB","United Kingdom","R&amp;B",2
+"GB","United Kingdom","Reggae",2
+"GB","United Kingdom","Rock",14
+"GB","United Kingdom","Symphonic Rock",1
+"GB","United Kingdom","Synthpop",1
+"GB","United Kingdom","Techno",1
+"GB","United Kingdom","Trip Hop",4
+"GB","United Kingdom","Vocal Jazz",1
+"GR","Greece","Dark Ambient",1
+"HR","Croatia","Inconnu",2
+"IN","India","Blues",1
+"Inconnu","Inconnu","Acoustic",3
+"Inconnu","Inconnu","Alternative Hip Hop",1
+"Inconnu","Inconnu","Alternative Metal",3
+"Inconnu","Inconnu","Alternative Rock",41
+"Inconnu","Inconnu","Ambient",1
+"Inconnu","Inconnu","Americana",4
+"Inconnu","Inconnu","Art Rock",4
+"Inconnu","Inconnu","Australian Hip Hop",2
+"Inconnu","Inconnu","Avant-garde",5
+"Inconnu","Inconnu","Ballad",1
+"Inconnu","Inconnu","Baroque Pop",1
+"Inconnu","Inconnu","Black Metal",20
+"Inconnu","Inconnu","Blues",11
+"Inconnu","Inconnu","Blues Rock",6
+"Inconnu","Inconnu","Bossa Nova",1
+"Inconnu","Inconnu","Breakcore",2
+"Inconnu","Inconnu","Bubblegum Pop",2
+"Inconnu","Inconnu","Chanson",18
+"Inconnu","Inconnu","Children&apos;s Music",6
+"Inconnu","Inconnu","Chillwave",1
+"Inconnu","Inconnu","Christian",4
+"Inconnu","Inconnu","Christmas",5
+"Inconnu","Inconnu","Classical",3
+"Inconnu","Inconnu","Comedy",5
+"Inconnu","Inconnu","Contemporary Christian",13
+"Inconnu","Inconnu","Country",82
+"Inconnu","Inconnu","Crunk",1
+"Inconnu","Inconnu","Crust Punk",3
+"Inconnu","Inconnu","Dance",4
+"Inconnu","Inconnu","Dance-Pop",4
+"Inconnu","Inconnu","Dark Ambient",1
+"Inconnu","Inconnu","Dark Cabaret",2
+"Inconnu","Inconnu","Dark Electro",2
+"Inconnu","Inconnu","Dark Metal",1
+"Inconnu","Inconnu","Dark Wave",3
+"Inconnu","Inconnu","Death Metal",18
+"Inconnu","Inconnu","Deathcore",2
+"Inconnu","Inconnu","Deutschrock",3
+"Inconnu","Inconnu","Disco",6
+"Inconnu","Inconnu","Djent",1
+"Inconnu","Inconnu","Doom Metal",5
+"Inconnu","Inconnu","Drone Music",1
+"Inconnu","Inconnu","Easy Listening",2
+"Inconnu","Inconnu","EBM",2
+"Inconnu","Inconnu","Electronic",31
+"Inconnu","Inconnu","Electronic Rock",5
+"Inconnu","Inconnu","Electronica",4
+"Inconnu","Inconnu","Electronicore",2
+"Inconnu","Inconnu","Electropop",3
+"Inconnu","Inconnu","Emo",2
+"Inconnu","Inconnu","Eurodance",2
+"Inconnu","Inconnu","Experimental",4
+"Inconnu","Inconnu","Experimental Rock",4
+"Inconnu","Inconnu","Fado",1
+"Inconnu","Inconnu","Folk",30
+"Inconnu","Inconnu","Folk Metal",6
+"Inconnu","Inconnu","Folk Punk",1
+"Inconnu","Inconnu","Folk Rock",41
+"Inconnu","Inconnu","Folktronica",1
+"Inconnu","Inconnu","Forr&#xF3;",4
+"Inconnu","Inconnu","Francophone",1
+"Inconnu","Inconnu","Freestyle",6
+"Inconnu","Inconnu","French Pop",4
+"Inconnu","Inconnu","Funk",1
+"Inconnu","Inconnu","Futurepop",2
+"Inconnu","Inconnu","Gangsta Rap",6
+"Inconnu","Inconnu","Garage Rock",4
+"Inconnu","Inconnu","Glam Metal",5
+"Inconnu","Inconnu","Glam Rock",7
+"Inconnu","Inconnu","Goregrind",1
+"Inconnu","Inconnu","Gospel",12
+"Inconnu","Inconnu","Gothic",1
+"Inconnu","Inconnu","Gothic Metal",4
+"Inconnu","Inconnu","Gothic Rock",1
+"Inconnu","Inconnu","Gothic Rock&#x200F;&#x200E;",1
+"Inconnu","Inconnu","Grindcore",1
+"Inconnu","Inconnu","Groove Metal",1
+"Inconnu","Inconnu","Hard Rock",78
+"Inconnu","Inconnu","Hardcore Hip Hop",1
+"Inconnu","Inconnu","Hardcore Punk",11
+"Inconnu","Inconnu","Heavy Metal",35
+"Inconnu","Inconnu","Hip Hop",64
+"Inconnu","Inconnu","Horror Punk",1
+"Inconnu","Inconnu","Horrorcore",4
+"Inconnu","Inconnu","House",1
+"Inconnu","Inconnu","Inconnu",4024
+"Inconnu","Inconnu","Indie",5
+"Inconnu","Inconnu","Indie Folk",3
+"Inconnu","Inconnu","Indie Pop",21
+"Inconnu","Inconnu","Indie Rock",42
+"Inconnu","Inconnu","Industrial",9
+"Inconnu","Inconnu","Industrial Metal",8
+"Inconnu","Inconnu","Irish Folk",1
+"Inconnu","Inconnu","J-Pop",24
+"Inconnu","Inconnu","J-Rap",3
+"Inconnu","Inconnu","J-Rock",1
+"Inconnu","Inconnu","Jazz",42
+"Inconnu","Inconnu","Jazz Fusion",9
+"Inconnu","Inconnu","Latin",7
+"Inconnu","Inconnu","Latin Pop",3
+"Inconnu","Inconnu","Latin Rock",2
+"Inconnu","Inconnu","Medieval",2
+"Inconnu","Inconnu","Melodic Metalcore",2
+"Inconnu","Inconnu","Metalcore",10
+"Inconnu","Inconnu","Midwest Rap",5
+"Inconnu","Inconnu","Minimal",1
+"Inconnu","Inconnu","Modern Rock",1
+"Inconnu","Inconnu","MPB",8
+"Inconnu","Inconnu","New Age",3
+"Inconnu","Inconnu","New Wave",6
+"Inconnu","Inconnu","Nu Metal",2
+"Inconnu","Inconnu","Orchestral",4
+"Inconnu","Inconnu","Parody",11
+"Inconnu","Inconnu","Piano Rock",3
+"Inconnu","Inconnu","Pop",158
+"Inconnu","Inconnu","Pop Punk",4
+"Inconnu","Inconnu","Pop Rock",45
+"Inconnu","Inconnu","Post-Grunge",4
+"Inconnu","Inconnu","Post-Hardcore",12
+"Inconnu","Inconnu","Post-Punk",3
+"Inconnu","Inconnu","Post-Rock",7
+"Inconnu","Inconnu","Power Metal",21
+"Inconnu","Inconnu","Powerviolence",2
+"Inconnu","Inconnu","Progressive Folk",1
+"Inconnu","Inconnu","Progressive Metal",26
+"Inconnu","Inconnu","Progressive Rock",20
+"Inconnu","Inconnu","Protest Song",1
+"Inconnu","Inconnu","Psychedelic",1
+"Inconnu","Inconnu","Psychedelic Pop",1
+"Inconnu","Inconnu","Psychedelic Rock",6
+"Inconnu","Inconnu","Punk Rock",82
+"Inconnu","Inconnu","R&amp;B",21
+"Inconnu","Inconnu","Rap Rock",1
+"Inconnu","Inconnu","Reggae",15
+"Inconnu","Inconnu","Reggaeton",1
+"Inconnu","Inconnu","Regional Mexican",1
+"Inconnu","Inconnu","Religious",2
+"Inconnu","Inconnu","RIO",2
+"Inconnu","Inconnu","Rock",154
+"Inconnu","Inconnu","Rock Against Communism",3
+"Inconnu","Inconnu","Samba",3
+"Inconnu","Inconnu","Schlager",28
+"Inconnu","Inconnu","Sertanejo",10
+"Inconnu","Inconnu","Shoegazing",1
+"Inconnu","Inconnu","Ska Punk",4
+"Inconnu","Inconnu","Sludge Metal",2
+"Inconnu","Inconnu","Soft Rock",1
+"Inconnu","Inconnu","Soul",18
+"Inconnu","Inconnu","Soundtrack",4
+"Inconnu","Inconnu","Southern Hip Hop",12
+"Inconnu","Inconnu","Southern Rock",6
+"Inconnu","Inconnu","Space Rock",1
+"Inconnu","Inconnu","Speed Metal",6
+"Inconnu","Inconnu","Steampunk",1
+"Inconnu","Inconnu","Stoner Rock",1
+"Inconnu","Inconnu","Street Punk",3
+"Inconnu","Inconnu","Symphonic Black Metal",1
+"Inconnu","Inconnu","Symphonic Metal",6
+"Inconnu","Inconnu","Symphonic Rock",1
+"Inconnu","Inconnu","Synthpop",11
+"Inconnu","Inconnu","Technical Death Metal",2
+"Inconnu","Inconnu","Techno",1
+"Inconnu","Inconnu","Teen Pop",4
+"Inconnu","Inconnu","Thrash Metal",31
+"Inconnu","Inconnu","Trance",1
+"Inconnu","Inconnu","Trip Hop",3
+"Inconnu","Inconnu","Underground Hip Hop",1
+"Inconnu","Inconnu","Viking Metal",6
+"Inconnu","Inconnu","Visual Kei",1
+"Inconnu","Inconnu","Vocal",2
+"Inconnu","Inconnu","Vocal Jazz",1
+"Inconnu","Inconnu","Volkslied",1
+"Inconnu","Inconnu","West Coast Hip Hop",3
+"IT","Italy","Alternative Rock",2
+"IT","Italy","Gothic Metal",1
+"IT","Italy","Grunge",1
+"IT","Italy","Inconnu",25
+"IT","Italy","Jazz",1
+"IT","Italy","MPB",1
+"IT","Italy","Pop",1
+"IT","Italy","Rock",17
+"JP","Japan","Avant-garde",1
+"JP","Japan","Electronica",1
+"JP","Japan","Folk Metal",1
+"JP","Japan","Hard Rock",1
+"JP","Japan","Heavy Metal",1
+"JP","Japan","Inconnu",19
+"JP","Japan","J-Pop",5
+"JP","Japan","J-Rock",14
+"JP","Japan","Jazz",3
+"JP","Japan","Pop",1
+"JP","Japan","Pop Rock",1
+"JP","Japan","Power Metal",1
+"JP","Japan","Progressive Rock",1
+"JP","Japan","Rock",1
+"JP","Japan","Soul",2
+"JP","Japan","Trip Hop",1
+"JP","Japan","Visual Kei",2
+"JP","Japan","Visual Kei&#x200E;",1
+"JP","Japan","Vocal",1
+"MX","Mexico","Inconnu",2
+"NL","Netherlands","Alternative Rock",1
+"NL","Netherlands","Black Metal",4
+"NL","Netherlands","Death Metal",1
+"NL","Netherlands","Electronic",2
+"NL","Netherlands","Folk Rock",2
+"NL","Netherlands","Folktronica",1
+"NL","Netherlands","Hard Rock",2
+"NL","Netherlands","Heavy Metal",1
+"NL","Netherlands","Inconnu",7
+"NL","Netherlands","New Wave",1
+"NL","Netherlands","Punk Rock",1
+"NL","Netherlands","Rock",1
+"NO","Norway","Black Metal",1
+"NO","Norway","Electronic",1
+"NO","Norway","Electronica",2
+"NO","Norway","Experimental",3
+"NO","Norway","Folk Rock",3
+"NO","Norway","Glam Rock",1
+"NO","Norway","Gothic Metal",1
+"NO","Norway","Hard Rock",1
+"NO","Norway","Inconnu",9
+"NO","Norway","Pop",1
+"PL","Poland","Death Metal",3
+"PL","Poland","Inconnu",14
+"PL","Poland","Progressive Rock",1
+"PL","Poland","Reggae",3
+"PT","Portugal","Folk Rock",1
+"PT","Portugal","Inconnu",1
+"PT","Portugal","Pop",1
+"PT","Portugal","Rock",3
+"RO","Romania","Alternative Rock",3
+"RS","Serbia","Inconnu",1
+"RU","Russian Federation","Inconnu",8
+"RU","Russian Federation","Industrial Metal",1
+"SE","Sweden","Black Metal",2
+"SE","Sweden","Death Metal",3
+"SE","Sweden","Electropop",1
+"SE","Sweden","Hard Rock",2
+"SE","Sweden","Inconnu",19
+"SE","Sweden","Pop",4
+"SE","Sweden","Psychedelic Rock",1
+"SE","Sweden","Rock",1
+"SE","Sweden","Synthpop",1
+"SI","Slovenia","Inconnu",1
+"UA","Ukraine","Inconnu",1
+"US","United States","Acoustic",1
+"US","United States","Adult Alternative",1
+"US","United States","Aggrotech",1
+"US","United States","Alternative Country",1
+"US","United States","Alternative Metal",4
+"US","United States","Alternative Rock",37
+"US","United States","Art Rock",2
+"US","United States","Avant-garde",10
+"US","United States","Avant-garde Metal",1
+"US","United States","Baroque Pop",1
+"US","United States","Black Metal",2
+"US","United States","Blues",2
+"US","United States","Christian Hip Hop",2
+"US","United States","Christmas",4
+"US","United States","Contemporary Christian",5
+"US","United States","Contemporary R&amp;B",2
+"US","United States","Country",67
+"US","United States","Dance",2
+"US","United States","Dance-Pop",2
+"US","United States","Dark Ambient",1
+"US","United States","Dark Wave",1
+"US","United States","Dark Wave&#x200F;&#x200E;",2
+"US","United States","Death Metal",10
+"US","United States","Deathcore",2
+"US","United States","Disco",1
+"US","United States","EBM",1
+"US","United States","Electro",3
+"US","United States","Electronic",4
+"US","United States","Electronic Rock",2
+"US","United States","Electronica",2
+"US","United States","Experimental Pop",4
+"US","United States","Experimental Rock",1
+"US","United States","Filk",1
+"US","United States","Folk",17
+"US","United States","Folk Metal",2
+"US","United States","Folk Rock",6
+"US","United States","French Pop",1
+"US","United States","Funk",1
+"US","United States","Futurepop",2
+"US","United States","Glam Metal",2
+"US","United States","Gospel",3
+"US","United States","Gothic",5
+"US","United States","Gothic Rock",1
+"US","United States","Grindcore",1
+"US","United States","Grunge",1
+"US","United States","Hard Rock",38
+"US","United States","Hardcore Hip Hop",2
+"US","United States","Hardcore Punk",2
+"US","United States","Heavy Metal",8
+"US","United States","Hip Hop",22
+"US","United States","Horror Punk",1
+"US","United States","Horrorcore",8
+"US","United States","House",1
+"US","United States","Inconnu",262
+"US","United States","Indie",2
+"US","United States","Indie Pop",2
+"US","United States","Indie Rock",21
+"US","United States","Industrial",6
+"US","United States","Industrial Metal",1
+"US","United States","Jazz",20
+"US","United States","Jazz Fusion",1
+"US","United States","Metalcore",15
+"US","United States","Midwest Rap",4
+"US","United States","New Age",4
+"US","United States","New Wave",2
+"US","United States","Nu Metal",2
+"US","United States","Piano Rock",2
+"US","United States","Pop",45
+"US","United States","Pop Punk",11
+"US","United States","Pop Rock",5
+"US","United States","Post-Grunge",5
+"US","United States","Post-Hardcore",12
+"US","United States","Post-Punk",1
+"US","United States","Power Metal",7
+"US","United States","Power Pop",5
+"US","United States","Progressive Metal",4
+"US","United States","Progressive Rock",7
+"US","United States","Psychedelic Pop",1
+"US","United States","Psychedelic Rock",6
+"US","United States","Punk Rock",5
+"US","United States","R&amp;B",29
+"US","United States","Rap Rock",3
+"US","United States","Reggae",8
+"US","United States","RIO",1
+"US","United States","Rock",49
+"US","United States","Rock &apos;N&apos; Roll",1
+"US","United States","Roots",2
+"US","United States","Screamo",5
+"US","United States","Ska",1
+"US","United States","Soft Rock",1
+"US","United States","Soul",5
+"US","United States","Southern Hip Hop",3
+"US","United States","Steampunk",1
+"US","United States","Symphonic Black Metal",1
+"US","United States","Synthpop",1
+"US","United States","Techno",2
+"US","United States","Thrash Metal",12
+"US","United States","Trip Hop",7
+"US","United States","Vocal",1
+"US","United States","Vocal Jazz",1
+"US","United States","World Music",1
+"VE","Venezuela","Inconnu",1
+"XE","Europe North","Alternative Metal",1
+"XE","Europe North","Alternative Rock",3
+"XE","Europe North","Ambient",1
+"XE","Europe North","Death Metal",2
+"XE","Europe North","Electronic",2
+"XE","Europe North","Electronica",1
+"XE","Europe North","Hard Rock",2
+"XE","Europe North","Heavy Metal",1
+"XE","Europe North","Hip Hop",1
+"XE","Europe North","Inconnu",15
+"XE","Europe North","Indie Rock",3
+"XE","Europe North","Jazz",1
+"XE","Europe North","New Wave",1
+"XE","Europe North","Post-Punk",1
+"XE","Europe North","Punk Rock",1
+"XE","Europe North","R&amp;B",1
+"XE","Europe North","Symphonic Metal",1
+"XE","Europe North","Viking Metal",2
+"XW","Palestinian Territory","Chill-out",1
+"XW","Palestinian Territory","Comedy",1
+"XW","Palestinian Territory","Electronic",4
+"XW","Palestinian Territory","Electronic Rock",1
+"XW","Palestinian Territory","Folk",1
+"XW","Palestinian Territory","Folk Rock",1
+"XW","Palestinian Territory","Heavy Metal",2
+"XW","Palestinian Territory","Hip Hop",2
+"XW","Palestinian Territory","Inconnu",18
+"XW","Palestinian Territory","Industrial Metal",1
+"XW","Palestinian Territory","Melodic Death Metal",1
+"XW","Palestinian Territory","Orchestral",1
+"XW","Palestinian Territory","Piano Rock",1
+"XW","Palestinian Territory","Pop Punk",1
+"XW","Palestinian Territory","Power Metal",2
+"XW","Palestinian Territory","Rock",2
+"YU","Inconnu","Inconnu",1
+"ZA","South Africa","Rock",3

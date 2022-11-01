@@ -6,6 +6,11 @@ const margin = {left: 50, top: 20, bottom: 20, right: 20}; // the margins of the
 let width = window.innerWidth; // the width of the svg
 let height = window.innerHeight; // the height of the svg
 let data;
+let country = [];
+let countryName = [];
+let genres = [];
+let score = [];
+let colors = [];
 
 
 
@@ -24,12 +29,10 @@ const path = d3.geoPath()
 
 const cGroup = svg.append("g");
 
-var promises = [];
-promises.push(d3.json("./world-countries-no-antartica.json"));
 
 
-Promise.all(promises).then(function(values) {
-    const geojson = values[0];
+let map = async () => {
+    const geojson = await d3.json("./world-countries-no-antartica.json");
 
 
     var b  = path.bounds(geojson),
@@ -49,7 +52,9 @@ Promise.all(promises).then(function(values) {
         .attr("class", "country");
 
     // Le traitement du CSV est réalisé ici
-});
+    locationInfo();
+}
+map();
 
 function addTooltip() {
     var tooltip = svg.append("g") // Group for the whole tooltip
@@ -142,13 +147,9 @@ let locationInfo = async () => {
         ;
     });
 }
-locationInfo();
 
-let country = [];
-let countryName = [];
-let genres = [];
-let score = [];
-let colors = []
+
+
 function getAllMax(data){
     data.forEach(d => {
         if (!country.includes(d.countryCode)){
