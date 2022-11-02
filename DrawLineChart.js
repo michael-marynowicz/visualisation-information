@@ -154,6 +154,11 @@ export default class DrawLineChart {
         this.allGenre = this.find5max(this.data);
 
         let container = document.createElement("div");
+        d3.select("body")
+            .append("p")
+            .attr('id','List')
+            .text("Select genres:")
+
         Array.from(this.allGenre).forEach((genre) => {
             let input = document.createElement("input");
             input.type = "checkbox";
@@ -178,7 +183,7 @@ export default class DrawLineChart {
 
         this.drawLineChart(this.data,toMap);
     };
-//genreParAnnee();
+
 
 }
 
