@@ -14,6 +14,7 @@ let colors = [];
 
 
 
+
 let svg = d3.select("body").append("svg")
     .attr('width', width + margin.left + margin.right)
     .attr('height', height + margin.top + margin.bottom)
@@ -52,7 +53,7 @@ let map = async () => {
         .attr("class", "country");
 
     // Le traitement du CSV est réalisé ici
-    locationInfo();
+    await locationInfo();
 }
 map();
 
@@ -120,6 +121,7 @@ let locationInfo = async () => {
         let s = score[index]
         let color = colors[index]
         var countryPath = d3.select("#code" + code);
+        console.log(countryPath,code,color)
         countryPath
             .attr("scorecolor", s)
             .style("fill", color)
@@ -156,7 +158,7 @@ function getAllMax(data){
             country.push(d.countryCode)
             genres.push(d.genre)
             score.push(d.count)
-            colors.push('#'+Math.floor(Math.random()*16777215).toString(16));
+            colors.push('#'+Math.floor(Math.random()*16777215).toString(16).padStart(6, '0').toUpperCase());
 
         }
         else {
@@ -174,7 +176,7 @@ function getAllMaxWithoutInconnu(data){
     data.forEach(d => {
         if (!country.includes(d.countryCode) && d.genre !== "Inconnu"){
             country.push(d.countryCode)
-            colors.push(genres.includes(d.genre) ? colors[genres.indexOf(d.genre)] : '#'+Math.floor(Math.random()*16777215).toString(16))
+            colors.push(genres.includes(d.genre) ? colors[genres.indexOf(d.genre)] : '#'+Math.floor(Math.random()*16777215).toString(16).padStart(6, '0').toUpperCase())
             genres.push(d.genre)
             score.push(d.count)
             countryName.push(d.countryName)
