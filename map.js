@@ -141,7 +141,7 @@ let locationInfo = async () => {
             })
             .on('click',function(){
                 let drawLineChart = new DrawLineChart(svg);
-                drawLineChart.genreParAnnee(true)
+                drawLineChart.genreParAnnee(true,code)
                 //genreParAnnee(true)
             })
         ;
