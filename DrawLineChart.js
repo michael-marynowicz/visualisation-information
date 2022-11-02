@@ -142,7 +142,7 @@ export default class DrawLineChart {
 
     genreParAnnee = async (toMap,countryCode) => {
         this.data = await d3.csv("genreParAnnee.csv", this.parseRowGenreParAnnee);
-        this.copieData = Array.from(this.data);
+
 
         this.allGenre = new Set();
         this.data.map(d => {
@@ -150,6 +150,7 @@ export default class DrawLineChart {
             this.allGenre.add(d.genre)
         });
         this.data = this.data.filter( d => d.country === countryCode)
+        this.copieData = Array.from(this.data);
         this.allGenre = this.find5max(this.data);
 
         let container = document.createElement("div");
