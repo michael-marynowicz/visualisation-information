@@ -11,6 +11,8 @@ let countryName = [];
 let genres = [];
 let score = [];
 let colors = [];
+let countryInconnu = [];
+let numbersInconnu = [];
 
 
 
@@ -121,7 +123,6 @@ let locationInfo = async () => {
         let s = score[index]
         let color = colors[index]
         var countryPath = d3.select("#code" + code);
-        console.log(countryPath,code,color)
         countryPath
             .attr("scorecolor", s)
             .style("fill", color)
@@ -131,7 +132,8 @@ let locationInfo = async () => {
                 tooltip.select('#tooltip-country')
                     .text(countryName[index]);
                 tooltip.select('#tooltip-score')
-                    .text(genres[index]+' : '+s);
+                    .text(genres[index]+' : '+s+ " Inconnu : "+ (countryInconnu.includes(code) ? numbersInconnu[countryInconnu.indexOf(code)] : 0))
+
             })
             .on("mouseout", function() {
                 countryPath.style("fill", color)
@@ -144,7 +146,6 @@ let locationInfo = async () => {
             .on('click',function(){
                 let drawLineChart = new DrawLineChart(svg);
                 drawLineChart.genreParAnnee(true,code)
-                //genreParAnnee(true)
             })
         ;
     });
@@ -180,11 +181,14 @@ function getAllMaxWithoutInconnu(data){
             genres.push(d.genre)
             score.push(d.count)
             countryName.push(d.countryName)
-            //colors.push('#'+Math.floor(Math.random()*16777215).toString(16));
 
 
         }
         else {
+            if (d.countryCode!=="Inconnu" && d.genre === "Inconnu" ){
+                countryInconnu.push(d.countryCode)
+                numbersInconnu.push(d.count)
+            }
             let index = country.indexOf(d.countryCode)
             if (score[index]<d.count && d.genre !== "Inconnu"){
                 country[index] = d.countryCode
