@@ -6,13 +6,21 @@ const margin = {left: 50, top: 20, bottom: 20, right: 20}; // the margins of the
 let width = window.innerWidth; // the width of the svg
 let height = window.innerHeight; // the height of the svg
 let data;
+
 let country = [];
 let countryName = [];
 let genres = [];
 let score = [];
 let colors = [];
-let countryInconnu = [];
+
+let genreInconnu = [];
+
+let countryGenreInconnu = [];
 let numbersInconnu = [];
+
+let genreOfCountryInconnu=[];
+let numberOfGenreOfCountryInconnu =[];
+
 
 
 
@@ -118,6 +126,7 @@ let locationInfo = async () => {
     data = await d3.csv("locationInfo.csv",parseRowCount);
     getAllMaxWithoutInconnu(data);
     var tooltip = addTooltip();
+    addCountryWithGenreInconnu()
     country.forEach(code => {
         let index = country.indexOf(code)
         let s = score[index]
@@ -132,7 +141,7 @@ let locationInfo = async () => {
                 tooltip.select('#tooltip-country')
                     .text(countryName[index]);
                 tooltip.select('#tooltip-score')
-                    .text(genres[index]+' : '+s+ " Inconnu : "+ (countryInconnu.includes(code) ? numbersInconnu[countryInconnu.indexOf(code)] : 0))
+                    .text(genres[index]+' : '+s + (countryGenreInconnu.includes(code) ? " Inconnu "+ numbersInconnu[countryGenreInconnu.indexOf(code)]  : ""))
 
             })
             .on("mouseout", function() {
@@ -151,50 +160,62 @@ let locationInfo = async () => {
     });
 }
 
-
-
-function getAllMax(data){
-    data.forEach(d => {
-        if (!country.includes(d.countryCode)){
-            country.push(d.countryCode)
-            genres.push(d.genre)
-            score.push(d.count)
-            colors.push('#'+Math.floor(Math.random()*16777215).toString(16).padStart(6, '0').toUpperCase());
-
+function addCountryWithGenreInconnu(){
+    var countryWithNoGenre = [];
+    genreInconnu.forEach(d =>{
+        if (country.includes( d.countryCode )){
+            countryGenreInconnu.push(d.countryCode)
+            numbersInconnu.push(d.count)
         }
         else {
-            let index = country.indexOf(d.countryCode)
-            if (score[index]<d.count){
-                country[index] = d.countryCode
-                genres[index] = d.genre
-                score[index] = d.count
-            }
+            countryWithNoGenre.push(d);
         }
+
     })
+
+    var color = '#'+Math.floor(Math.random()*16777215).toString(16).padStart(6, '0').toUpperCase()
+    countryWithNoGenre.forEach(d =>{
+        countryName.push(d.countryName)
+        country.push(d.countryCode);
+        score.push(d.count);
+        genres.push(d.genre)
+        colors.push(color);
+
+    }
+    )
 }
+
 
 function getAllMaxWithoutInconnu(data){
     data.forEach(d => {
-        if (!country.includes(d.countryCode) && d.genre !== "Inconnu"){
-            country.push(d.countryCode)
-            colors.push(genres.includes(d.genre) ? colors[genres.indexOf(d.genre)] : '#'+Math.floor(Math.random()*16777215).toString(16).padStart(6, '0').toUpperCase())
-            genres.push(d.genre)
-            score.push(d.count)
-            countryName.push(d.countryName)
-
-
+        if (d.countryCode==="Inconnu") {
+            genreOfCountryInconnu.push(d.genre)
+            numberOfGenreOfCountryInconnu.push(d.count)
         }
-        else {
-            if (d.countryCode!=="Inconnu" && d.genre === "Inconnu" ){
-                countryInconnu.push(d.countryCode)
-                numbersInconnu.push(d.count)
-            }
-            let index = country.indexOf(d.countryCode)
-            if (score[index]<d.count && d.genre !== "Inconnu"){
-                country[index] = d.countryCode
-                genres[index] = d.genre
-                score[index] = d.count
+        else{
+            if (!country.includes(d.countryCode) && d.genre !== "Inconnu") {
+                country.push(d.countryCode)
+                colors.push(genres.includes(d.genre) ? colors[genres.indexOf(d.genre)] : '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0').toUpperCase())
+                genres.push(d.genre)
+                score.push(d.count)
+                countryName.push(d.countryName)
+
+
+            } else {
+                if (d.genre === "Inconnu") {
+                    genreInconnu.push(d)
+                    //numbersInconnu.push(d.count)
+                }
+                else{
+                    let index = country.indexOf(d.countryCode)
+                    if (score[index] < d.count) {
+                        country[index] = d.countryCode
+                        genres[index] = d.genre
+                        score[index] = d.count
+                    }
+                }
             }
         }
     })
+
 }
