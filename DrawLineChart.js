@@ -151,7 +151,7 @@ export default class DrawLineChart {
         this.allGenre = this.find5max(this.data);
 
         let container = document.createElement("div");
-        d3.select("body")
+        d3.select("#buttonList")
             .append("p")
             .attr('id','List')
             .text("Select genres:")

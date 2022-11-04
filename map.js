@@ -25,10 +25,6 @@ let svg = d3.select("body").append("svg")
     .attr('height', height + margin.top + margin.bottom)
 
 
-
-
-
-
 let map = async (init) => {
 
     const geojson = await d3.json("./world-countries-no-antartica.json");
@@ -152,7 +148,7 @@ function colorMap(){
             .on('click',function(){
                 let drawLineChart = new DrawLineChart(svg);
                 drawLineChart.genreParAnnee(true,code)
-                d3.select("body")
+                d3.select("#buttonList")
                     .append("button")
                     .attr('type',"button")
                     .attr('id','buttonRetour')
