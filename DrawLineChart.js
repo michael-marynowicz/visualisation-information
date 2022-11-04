@@ -36,8 +36,8 @@ export default class DrawLineChart {
 
     drawLineChart(data, toMap = false) {
         if (toMap) {
-            this.svg.remove();
-            this.svg = d3.select("body").append("svg")
+            this.svg.selectAll("*").remove();
+            this.svg
                 .attr('width', this.width + this.margin.left + this.margin.right)
                 .attr('height', this.height + this.margin.top + this.margin.bottom)
         }
@@ -118,7 +118,7 @@ export default class DrawLineChart {
     stickyheaddsadaer(genre, box) {
         if (box.checked) {
             this.genreToPrint.push(genre);
-            this.colors.push('#' + Math.floor(Math.random() * 16777215).toString(16))
+            this.colors.push('#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0').toUpperCase())
         } else {
             let index = this.genreToPrint.indexOf(genre)
             this.genreToPrint.splice(index, 1);
@@ -131,10 +131,7 @@ export default class DrawLineChart {
         } else {
             this.data = this.copieData;
         }
-        this.svg.remove();
-        this.svg = d3.select("body").append("svg")
-            .attr('width', this.width + this.margin.left + this.margin.right)
-            .attr('height', this.height + this.margin.top + this.margin.bottom)
+        this.svg.selectAll("*").remove();
         this.drawLineChart(this.data);
     }
 

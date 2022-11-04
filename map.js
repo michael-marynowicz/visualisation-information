@@ -30,20 +30,36 @@ let svg = d3.select("body").append("svg")
     .attr('height', height + margin.top + margin.bottom)
 
 
-const projection = d3.geoNaturalEarth1()
-    .scale(1)
-    .translate([0, 0]);
 
-const path = d3.geoPath()
-    .pointRadius(2)
-    .projection(projection);
-
-const cGroup = svg.append("g");
 
 
 
 let map = async () => {
+    country = [];
+    countryName = [];
+    genres = [];
+    score = [];
+    colors = [];
+
+    genreInconnu = [];
+
+    countryGenreInconnu = [];
+    numbersInconnu = [];
+
+    genreOfCountryInconnu=[];
+    numberOfGenreOfCountryInconnu =[];
+
     const geojson = await d3.json("./world-countries-no-antartica.json");
+
+    const projection = d3.geoNaturalEarth1()
+        .scale(1)
+        .translate([0, 0]);
+
+    const path = d3.geoPath()
+        .pointRadius(2)
+        .projection(projection);
+
+    const cGroup = svg.append("g");
 
 
     var b  = path.bounds(geojson),
@@ -53,7 +69,6 @@ let map = async () => {
     projection
         .scale(s)
         .translate(t);
-
     cGroup.selectAll("path")
         .data(geojson.features)
         .enter()
@@ -64,6 +79,9 @@ let map = async () => {
 
     // Le traitement du CSV est réalisé ici
     await locationInfo();
+    addCircleForInconnu();
+
+
 }
 map();
 
@@ -126,12 +144,14 @@ let locationInfo = async () => {
     data = await d3.csv("locationInfo.csv",parseRowCount);
     getAllMaxWithoutInconnu(data);
     var tooltip = addTooltip();
-    addCountryWithGenreInconnu()
+    addCountryWithGenreInconnu();
+
     country.forEach(code => {
         let index = country.indexOf(code)
         let s = score[index]
         let color = colors[index]
         var countryPath = d3.select("#code" + code);
+        console.log(countryPath)
         countryPath
             .attr("scorecolor", s)
             .style("fill", color)
@@ -141,7 +161,7 @@ let locationInfo = async () => {
                 tooltip.select('#tooltip-country')
                     .text(countryName[index]);
                 tooltip.select('#tooltip-score')
-                    .text(genres[index]+' : '+s + (countryGenreInconnu.includes(code) ? " Inconnu "+ numbersInconnu[countryGenreInconnu.indexOf(code)]  : ""))
+                    .text(genres[index]+' : '+s + (countryGenreInconnu.includes(code) ? " Inconnu : "+ numbersInconnu[countryGenreInconnu.indexOf(code)]  : ""))
 
             })
             .on("mouseout", function() {
@@ -155,6 +175,20 @@ let locationInfo = async () => {
             .on('click',function(){
                 let drawLineChart = new DrawLineChart(svg);
                 drawLineChart.genreParAnnee(true,code)
+                d3.select("body")
+                    .append("button")
+                    .attr('type',"button")
+                    .attr('id','buttonRetour')
+                    .text("Retour à la carte")
+                    .on('click',function(){
+                        d3.select("#buttonRetour").remove()
+                        svg.remove();
+                        d3.select("#List").remove();
+                        svg = d3.select("body").append("svg")
+                            .attr('width', width + margin.left + margin.right)
+                            .attr('height', height + margin.top + margin.bottom)
+                        map();
+                    })
             })
         ;
     });
@@ -189,8 +223,8 @@ function addCountryWithGenreInconnu(){
 function getAllMaxWithoutInconnu(data){
     data.forEach(d => {
         if (d.countryCode==="Inconnu") {
-            genreOfCountryInconnu.push(d.genre)
-            numberOfGenreOfCountryInconnu.push(d.count)
+            genreOfCountryInconnu.push(d)
+            //numberOfGenreOfCountryInconnu.push(d.count)
         }
         else{
             if (!country.includes(d.countryCode) && d.genre !== "Inconnu") {
@@ -217,5 +251,44 @@ function getAllMaxWithoutInconnu(data){
             }
         }
     })
+
+}
+
+function addCircleForInconnu(){
+    svg.append('circle')
+        .attr('id', "circle")
+        .attr('cx', 200)
+        .attr('cy', 400)
+        .attr('r', 20)
+        .attr('stroke', 'black')
+        .attr('fill', '#69a3b2')
+    var tooltip = addTooltip();
+    var circle = d3.select("#circle");
+    circle
+        .on("mouseover", function() {
+            circle.style("fill", "#9966cc");
+            tooltip.style("display", null);
+            tooltip.select('#tooltip-country')
+                .text("Inconnu Island");
+            tooltip.select('#tooltip-score')
+                .text(() =>{
+                    var text = "";
+                    genreOfCountryInconnu.forEach(d =>{
+                        text+= `- ${d.genre } ${ d.count } -` ;
+                    })
+                    return text
+                })
+
+        })
+        .on("mouseout", function() {
+            circle.style("fill", '#69a3b2')
+            tooltip.style("display", "none")
+        })
+        .on("mousemove", function(event) {
+            var mouse = d3.pointer(event);
+            tooltip.attr("transform", "translate(" + mouse[0] + "," + (mouse[1] - 75) + ")");
+        })
+
+
 
 }
