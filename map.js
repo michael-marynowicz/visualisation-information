@@ -19,11 +19,6 @@ let countryGenreInconnu = [];
 let numbersInconnu = [];
 
 let genreOfCountryInconnu=[];
-let numberOfGenreOfCountryInconnu =[];
-
-
-
-
 
 let svg = d3.select("body").append("svg")
     .attr('width', width + margin.left + margin.right)
@@ -34,20 +29,7 @@ let svg = d3.select("body").append("svg")
 
 
 
-let map = async () => {
-    country = [];
-    countryName = [];
-    genres = [];
-    score = [];
-    colors = [];
-
-    genreInconnu = [];
-
-    countryGenreInconnu = [];
-    numbersInconnu = [];
-
-    genreOfCountryInconnu=[];
-    numberOfGenreOfCountryInconnu =[];
+let map = async (init) => {
 
     const geojson = await d3.json("./world-countries-no-antartica.json");
 
@@ -78,12 +60,12 @@ let map = async () => {
         .attr("class", "country");
 
     // Le traitement du CSV est réalisé ici
-    await locationInfo();
+    await locationInfo(init);
     addCircleForInconnu();
 
 
 }
-map();
+map(true);
 
 function addTooltip() {
     var tooltip = svg.append("g") // Group for the whole tooltip
@@ -140,18 +122,13 @@ let parseRowCount = (d) => {
     return d;
 }
 
-let locationInfo = async () => {
-    data = await d3.csv("locationInfo.csv",parseRowCount);
-    getAllMaxWithoutInconnu(data);
+function colorMap(){
     var tooltip = addTooltip();
-    addCountryWithGenreInconnu();
-
     country.forEach(code => {
         let index = country.indexOf(code)
         let s = score[index]
         let color = colors[index]
         var countryPath = d3.select("#code" + code);
-        console.log(countryPath)
         countryPath
             .attr("scorecolor", s)
             .style("fill", color)
@@ -187,12 +164,23 @@ let locationInfo = async () => {
                         svg = d3.select("body").append("svg")
                             .attr('width', width + margin.left + margin.right)
                             .attr('height', height + margin.top + margin.bottom)
-                        map();
+                        map(false);
                     })
             })
         ;
     });
 }
+
+let locationInfo = async (init) => {
+    data = await d3.csv("locationInfo.csv",parseRowCount);
+    if (init){
+        getAllMaxWithoutInconnu(data);
+        addCountryWithGenreInconnu();
+    }
+    colorMap();
+};
+
+
 
 function addCountryWithGenreInconnu(){
     var countryWithNoGenre = [];
@@ -212,8 +200,8 @@ function addCountryWithGenreInconnu(){
         countryName.push(d.countryName)
         country.push(d.countryCode);
         score.push(d.count);
-        genres.push(d.genre)
-        colors.push(color);
+        genres.push(d.genre);
+        if (colors.length<= data.length) colors.push(color);
 
     }
     )
@@ -229,7 +217,8 @@ function getAllMaxWithoutInconnu(data){
         else{
             if (!country.includes(d.countryCode) && d.genre !== "Inconnu") {
                 country.push(d.countryCode)
-                colors.push(genres.includes(d.genre) ? colors[genres.indexOf(d.genre)] : '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0').toUpperCase())
+                if (colors.length<= data.length) colors.push(genres.includes(d.genre) ? colors[genres.indexOf(d.genre)] : '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0').toUpperCase())
+                console.log(colors.length,data.length)
                 genres.push(d.genre)
                 score.push(d.count)
                 countryName.push(d.countryName)
@@ -292,3 +281,6 @@ function addCircleForInconnu(){
 
 
 }
+
+
+
