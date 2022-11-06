@@ -146,7 +146,7 @@ export default class DrawLineChart {
             d.genre = d.genre.replace(/\s/g, '-')
             this.allGenre.add(d.genre)
         });
-        this.data = this.data.filter( d => d.country === countryCode)
+        this.data = this.data.filter( d => (d.country === countryCode) && this.allGenre.has(d["genre"]));
         this.copieData = Array.from(this.data);
         this.allGenre = this.find5max(this.data);
 
@@ -176,8 +176,8 @@ export default class DrawLineChart {
 
         document.querySelector("#List").appendChild(container);
 
-        this.data = this.data.filter(d => this.allGenre.includes(d["genre"]))
 
+        this.data.forEach(d => console.log(d.country))
         this.drawLineChart(this.data,toMap);
     };
 
