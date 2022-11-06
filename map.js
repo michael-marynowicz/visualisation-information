@@ -315,6 +315,25 @@ function addCircleForInconnu() {
             var mouse = d3.pointer(event);
             tooltip.attr("transform", "translate(" + mouse[0] + "," + (mouse[1] - 75) + ")");
         })
+        .on('click', function () {
+            let drawLineChart = new DrawLineChart(svg);
+            drawLineChart.genreParAnnee(true, "Inconnu")
+            d3.select("#buttonList")
+                .append("button")
+                .attr('type', "button")
+                .attr('id', 'buttonRetour')
+                .text("Retour à la carte")
+                .on('click', function () {
+                    d3.select("#buttonRetour").remove()
+                    svg.remove();
+                    d3.select("#List").remove();
+                    svg = d3.select("body").append("svg")
+                        .attr('width', width + margin.left + margin.right)
+                        .attr('height', height + margin.top + margin.bottom)
+                    map(false);
+                })
+        })
+    ;
 
 
 }

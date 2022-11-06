@@ -96,18 +96,27 @@ export default class DrawLineChart {
         return this.colors[this.genreToPrint.indexOf(d.genre)]
     }
 
-    find5max(data) {
-        let maxIndex = ["", "", "", "", ""];
+    find5max(data) { // TODO recalculer le 5max en parcourant une premiere fois data pour additionner tout les count d'un type
+        let maxIndex = [];
         let maxValue = [0, 0, 0, 0, 0];
 
-        data.forEach(d => {
+        let total = [];
+        let genres = Array.from(this.allGenre);
+
+        data.forEach(d=>{
+            let index = genres.indexOf(d.genre);
+            total[index] = !total[index] ? d.count : total[index] + d.count;
+
+        })
+        console.log(genres,total)
+        for (let i = 0; i < genres.length; i++) {
             let min = Math.min.apply(Math, maxValue)
-            if (d.count > min && !maxIndex.includes(d.genre)) {
-                maxIndex[maxValue.indexOf(min)] = d.genre;
-                maxValue[maxValue.indexOf(min)] = d.count;
+            if (total[i] > min) {
+                maxIndex[maxValue.indexOf(min)] = genres[i];
+                maxValue[maxValue.indexOf(min)] = total[i];
 
             }
-        });
+        }
         return maxIndex;
     }
 
