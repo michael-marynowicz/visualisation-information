@@ -57,6 +57,12 @@ let map = async (init) => {
     // Le traitement du CSV est réalisé ici
     await locationInfo(init);
     addCircleForInconnu();
+    /*d3.select( "#gene_search_box" )
+        .attr('autocomplete', `source: ${genres}`);*/
+
+
+
+
 
 
 }
@@ -166,40 +172,6 @@ function colorMap() {
     });
 }
 
-let locationInfo = async (init) => {
-    data = await d3.csv("locationInfo.csv", parseRowCount);
-    if (init) {
-        getAllMaxWithoutInconnu(data);
-        addCountryWithGenreInconnu();
-    }
-    colorMap();
-};
-
-
-function addCountryWithGenreInconnu() {
-    var countryWithNoGenre = [];
-    genreInconnu.forEach(d => {
-        if (country.includes(d.countryCode)) {
-            countryGenreInconnu.push(d.countryCode)
-            numbersInconnu.push(d.count)
-        } else {
-            countryWithNoGenre.push(d);
-        }
-
-    })
-
-    var color = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0').toUpperCase()
-    countryWithNoGenre.forEach(d => {
-            countryName.push(d.countryName)
-            country.push(d.countryCode);
-            score.push(d.count);
-            genres.push(d.genre);
-            if (colors.length <= data.length) colors.push(color);
-
-        }
-    )
-}
-
 
 function getAllMaxWithoutInconnu(data) {
     data.forEach(d => {
@@ -229,6 +201,9 @@ function getAllMaxWithoutInconnu(data) {
                 }
             }
         }
+
+
+
     })
 
 }
@@ -339,4 +314,38 @@ function addCircleForInconnu() {
 }
 
 
+
+let locationInfo = async (init) => {
+    data = await d3.csv("locationInfo.csv", parseRowCount);
+    if (init) {
+        getAllMaxWithoutInconnu(data);
+        addCountryWithGenreInconnu();
+    }
+    colorMap();
+};
+
+
+function addCountryWithGenreInconnu() {
+    var countryWithNoGenre = [];
+    genreInconnu.forEach(d => {
+        if (country.includes(d.countryCode)) {
+            countryGenreInconnu.push(d.countryCode)
+            numbersInconnu.push(d.count)
+        } else {
+            countryWithNoGenre.push(d);
+        }
+
+    })
+
+    var color = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0').toUpperCase()
+    countryWithNoGenre.forEach(d => {
+            countryName.push(d.countryName)
+            country.push(d.countryCode);
+            score.push(d.count);
+            genres.push(d.genre);
+            if (colors.length <= data.length) colors.push(color);
+
+        }
+    )
+}
 

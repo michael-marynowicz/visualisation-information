@@ -157,7 +157,7 @@ export default class DrawLineChart {
         });
         this.data = this.data.filter( d => (d.country === countryCode) && this.allGenre.has(d["genre"]));
         this.copieData = Array.from(this.data);
-        this.allGenre = this.find5max(this.data);
+        let fivemax = this.find5max(this.data);
 
         let container = document.createElement("div");
         d3.select("#buttonList")
@@ -165,7 +165,7 @@ export default class DrawLineChart {
             .attr('id','List')
             .text("Select genres:")
 
-        Array.from(this.allGenre).forEach((genre) => {
+        Array.from(fivemax).forEach((genre) => {
             let input = document.createElement("input");
             input.type = "checkbox";
             input.name = "genre";
@@ -183,10 +183,56 @@ export default class DrawLineChart {
             container.appendChild(label);
         });
 
+        d3.select("#buttonList")
+            .append('div')
+            .attr('class',"text-container")
+        d3.select(".text-container")
+            .append("input")
+            .attr('id','input')
+            .attr('type','text')
+            .attr('value','')
+            .attr('list','programmingLanguages')
+            .attr('placeholder','Search genre')
+        d3.select(".text-container")
+            .append("button")
+            .attr('type',"submit")
+            .text("Add genre")
+            .on('click',() =>{
+                let genre = document.getElementById('input').value;
+                if (this.allGenre.has(genre) && !fivemax.includes(genre)){
+                    let input = document.createElement("input");
+                    input.type = "checkbox";
+                    input.name = "genre";
+                    input.id = `genre-${genre}`;
+
+                    let label = document.createElement("label");
+                    label.setAttribute("for", `genre-${genre}`);
+                    label.appendChild(input);
+                    label.innerHTML += genre;
+                    label.onchange = () => {
+                        input.checked = !input.checked;
+                        this.stickyheaddsadaer(genre, input);
+                    };
+                    fivemax.push(genre)
+                    container.appendChild(label);
+                }
+                else{
+                    alert("genre not good")
+                }
+            })
+        d3.select(".text-container")
+            .append("datalist")
+            .attr('id','programmingLanguages')
+        this.allGenre.forEach(d=>{
+            if (!fivemax.includes(d)){
+                d3.select("#programmingLanguages")
+                    .append("option")
+                    .attr('value', d)
+                    .text(d)
+            }
+        })
+
         document.querySelector("#List").appendChild(container);
-
-
-        this.data.forEach(d => console.log(d.country))
         this.drawLineChart(this.data,toMap);
     };
 
