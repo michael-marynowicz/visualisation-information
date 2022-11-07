@@ -42,20 +42,21 @@ export default class DrawLineChart {
                 .attr('height', this.height + this.margin.top + this.margin.bottom)
         }
         const x = d3.scaleLinear()
-            .domain(d3.extent(data, this.xValue))
+            .domain([this.minMax[0], this.minMax[1]])
             .range([this.margin.left, this.width - this.margin.right])
         ;
+
 
         const y = d3.scaleLinear()
             .domain(d3.extent(data, this.yValue))
             .range([this.height - this.margin.bottom, this.margin.top])
         ;
+        const dataGroupBy = this.groupByGenreAndYear(data)
 
-        const marks = data.map(d => ({
+        const marks = dataGroupBy.map(d => ({
             x: x(this.xValue(d)),
             y: y(this.yValue(d)),
         }));
-//'#'+Math.floor(Math.random()*16777215).toString(16);
 
         this.svg.selectAll('circle')
             .data(marks)
@@ -69,7 +70,7 @@ export default class DrawLineChart {
                     .style("left", (event.pageX) + "px")
                     .style("top", (event.pageY - 28) + "px")
                     .style("opacity", 1)
-                    .html(data[marks.indexOf(d)]["genre"]);
+                    .html(dataGroupBy[marks.indexOf(d)]["genre"]);
             })
             .on("mouseout", () => {
                 this.div.transition()
@@ -77,6 +78,13 @@ export default class DrawLineChart {
                     .style("opacity", 0);
             })
         ;
+        let axis =d3.axisBottom(x);
+
+        axis.ticks(10)
+            .tickFormat(function(d) {
+                console.log(d.toString())
+                return d.toString();
+            });
 
 
         this.svg.append('g')
@@ -85,8 +93,42 @@ export default class DrawLineChart {
 
         this.svg.append('g')
             .attr('transform', `translate(0,${this.height - this.margin.bottom})`)
-            .call(d3.axisBottom(x));
+            .call(axis);
 
+
+
+    }
+
+    findMinAndMax(data){
+        let min=data[0]["publicationDate"]
+        let max=data[0]["publicationDate"]
+        data.forEach(d =>{
+            if(d.publicationDate<min){
+                min=d.publicationDate
+            }
+            if(d.publicationDate>max){
+                max=d.publicationDate
+            }
+        })
+        return [min,max];
+    }
+
+
+    groupByGenreAndYear(data){
+        let dataGroup = Array.from(data);
+        dataGroup.forEach(d=>{
+                let genre = d.genre;
+                dataGroup.forEach(g =>{
+                    if (g.genre!==genre && g.count===d.count && g.publicationDate===d.publicationDate){
+                        genre+=" "+g.genre;
+                        dataGroup.splice(dataGroup.indexOf(g),1);
+                    }
+                })
+                d.genre = genre
+
+
+        })
+        return dataGroup
 
     }
 
@@ -108,7 +150,6 @@ export default class DrawLineChart {
             total[index] = !total[index] ? d.count : total[index] + d.count;
 
         })
-        console.log(genres,total)
         for (let i = 0; i < genres.length; i++) {
             let min = Math.min.apply(Math, maxValue)
             if (total[i] > min) {
@@ -141,6 +182,7 @@ export default class DrawLineChart {
             this.data = this.copieData;
         }
         this.svg.selectAll("*").remove();
+
         this.drawLineChart(this.data);
     }
 
@@ -217,12 +259,39 @@ export default class DrawLineChart {
                     container.appendChild(label);
                 }
                 else{
-                    alert("genre not good")
+                    if (genre==="All") {
+                        this.allGenre.forEach(d =>
+                        {
+                            if (!fivemax.includes(d)) {
+                                let input = document.createElement("input");
+                                input.type = "checkbox";
+                                input.name = "genre";
+                                input.id = `genre-${d}`;
+
+                                let label = document.createElement("label");
+                                label.setAttribute("for", `genre-${d}`);
+                                label.appendChild(input);
+                                label.innerHTML += d;
+                                label.onchange = () => {
+                                    input.checked = !input.checked;
+                                    this.stickyheaddsadaer(d, input);
+                                };
+                                fivemax.push(genre)
+                                container.appendChild(label);
+                            }
+                        })
+
+                    }
+                    else alert("genre not good")
                 }
             })
         d3.select(".text-container")
             .append("datalist")
             .attr('id','programmingLanguages')
+        d3.select("#programmingLanguages")
+            .append("option")
+            .attr('value', 'All')
+            .text('All')
         this.allGenre.forEach(d=>{
             if (!fivemax.includes(d)){
                 d3.select("#programmingLanguages")
@@ -232,7 +301,9 @@ export default class DrawLineChart {
             }
         })
 
+
         document.querySelector("#List").appendChild(container);
+        this.minMax = this.findMinAndMax(this.data)
         this.drawLineChart(this.data,toMap);
     };
 

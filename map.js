@@ -52,7 +52,9 @@ let map = async (init) => {
         .append("path")
         .attr("d", path)
         .attr("id", d => "code" + d.id)
-        .attr("class", "country");
+        .attr("class", "country")
+        .style("fill","#525050")
+
 
     // Le traitement du CSV est réalisé ici
     await locationInfo(init);
@@ -134,7 +136,8 @@ function colorMap() {
             .attr("scorecolor", s)
             .style("fill", color)
             .on("mouseover", function () {
-                countryPath.style("fill", "#9966cc");
+                countryPath.style("opacity",0.8);
+                countryPath.style("stroke", "black")
                 tooltip.style("display", null);
                 tooltip.select('#tooltip-country')
                     .text(countryName[index]);
@@ -143,7 +146,8 @@ function colorMap() {
 
             })
             .on("mouseout", function () {
-                countryPath.style("fill", color)
+                countryPath.style("opacity",1);
+                countryPath.style("stroke", "none")
                 tooltip.style("display", "none")
             })
             .on("mousemove", function (event) {
@@ -159,7 +163,8 @@ function colorMap() {
                     .attr('id', 'buttonRetour')
                     .text("Retour à la carte")
                     .on('click', function () {
-                        d3.select("#buttonRetour").remove()
+                        d3.select("#buttonRetour").remove();
+                        d3.select(".text-container").remove()
                         svg.remove();
                         d3.select("#List").remove();
                         svg = d3.select("body").append("svg")
