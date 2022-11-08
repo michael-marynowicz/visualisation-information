@@ -210,7 +210,7 @@ export default class DrawLineChart {
 
 
 
-    genreParAnnee = async (toMap,countryCode) => {
+    genreParAnnee = async (toMap,countryCode,countryName) => {
         this.data = await d3.csv("genreParAnnee.csv", this.parseRowGenreParAnnee);
 
 
@@ -231,7 +231,7 @@ export default class DrawLineChart {
             .insert("h2","#buttonRetour")
             .attr("id","title")
             .style("text-align","center")
-            .text(countryCode)
+            .text(countryName)
 
         d3.select("body")
             .insert("div","svg")

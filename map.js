@@ -172,7 +172,7 @@ function colorMap() {
                 let d = data.find(d => d.countryCode===code)
 
                 let drawLineChart = new DrawLineChart(svg);
-                drawLineChart.genreParAnnee(true, d.countryName);
+                drawLineChart.genreParAnnee(true, code,d.countryName);
                 d3.select("body")
                     .insert("button","svg")
                     .attr('type', "button")
