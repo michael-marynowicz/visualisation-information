@@ -166,7 +166,6 @@ export default class DrawLineChart {
 
     stickyheaddsadaer(genre, box) {
         if (box.checked) {
-            console.log("ok")
             this.genreToPrint.push(genre);
             this.colors.push('#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0').toUpperCase())
         } else {
@@ -179,8 +178,9 @@ export default class DrawLineChart {
             this.data = this.copieData.filter(d => this.genreToPrint.includes(d["genre"]))
 
         } else {
-            this.data = this.copieData;
+            this.data = [];
         }
+
         this.svg.selectAll("*").remove();
 
         this.drawLineChart(this.data);
@@ -227,22 +227,21 @@ export default class DrawLineChart {
                 .on("change",()=>{
                     this.stickyheaddsadaer(genre, input);
                 })
-
-            /*label.onchange = () => {
-                input.checked = !input.checked;
-                this.stickyheaddsadaer(genre, input);
-            };
-
-            container.appendChild(label);*/
-
-
-
-
-
-            //d3.select(`#label-${genre}`).append("p").text(genre)
-
-
         });
+        d3.select("#buttonList")
+            .append("button")
+            .attr('type',"submit")
+            .text("Clear All Genres")
+            .on('click',()=>{
+                fivemax.forEach((genre) => {
+                    let input = d3.select(`#genre-${genre}`).node()
+                    input.checked=false;
+                    this.data=[];
+                    this.genreToPrint=[];
+                    this.colors=[];
+                    this.drawLineChart(this.data);
+                })
+        })
 
         d3.select("#buttonList")
             .append('div')
@@ -286,27 +285,28 @@ export default class DrawLineChart {
                     if (genre==="All") {
                         this.allGenre.forEach(d =>
                         {
+                            console.log(d)
                             if (!fivemax.includes(d)) {
                                 d3.select("#List")
                                     .append("input")
                                     .attr("type","checkbox")
                                     .attr("name","genre")
-                                    .attr("id",`genre-${genre}`)
+                                    .attr("id",`genre-${d}`)
                                     .attr("checked",true)
 
                                 d3.select("#List")
                                     .append("label")
-                                    .attr("id",`label-${genre}`)
-                                    .attr("for",`genre-${genre}`)
+                                    .attr("id",`label-${d}`)
+                                    .attr("for",`genre-${d}`)
                                     .text(`${d}`)
 
-                                let input = d3.select(`#genre-${genre}`).node();
+                                let input = d3.select(`#genre-${d}`).node();
                                 this.stickyheaddsadaer(d, input);
-                                d3.select(`#genre-${genre}`)
+                                d3.select(`#genre-${d}`)
                                     .on("change",()=>{
                                         this.stickyheaddsadaer(d, input);
                                     })
-                                fivemax.push(genre)
+                                fivemax.push(d)
                             }
                         })
 
@@ -332,9 +332,6 @@ export default class DrawLineChart {
 
 
         document.querySelector("#List").appendChild(container);
-        /*fivemax.forEach(d =>{
-            document.getElementById(`genre-${d}`).checked=true;
-        })*/
         this.drawLineChart(this.data,toMap);
     };
 

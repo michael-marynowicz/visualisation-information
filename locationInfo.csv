@@ -37,7 +37,7 @@
 "BE","Belgium","Pop",5
 "BE","Belgium","RIO",3
 "BE","Belgium","Rock",1
-"BR","Brazil","Children's Music",1
+"BR","Brazil","Children Music",1
 "BR","Brazil","Death Metal",3
 "BR","Brazil","Folk Metal",4
 "BR","Brazil","Forro",1
@@ -126,7 +126,7 @@
 "ES","Spain","Gothic Metal",1
 "ES","Spain","Inconnu",7
 "ES","Spain","Indie Pop",2
-"ES","Spain","R&B",1
+"ES","Spain","RandB",1
 "ES","Spain","Symphonic Metal",2
 "FI","Finland","Death Metal",1
 "FI","Finland","Gothic Metal",1
@@ -182,7 +182,7 @@
 "GB","United Kingdom","Progressive Metal",1
 "GB","United Kingdom","Progressive Rock",16
 "GB","United Kingdom","Punk Rock",10
-"GB","United Kingdom","R&B",2
+"GB","United Kingdom","RandB",2
 "GB","United Kingdom","Reggae",2
 "GB","United Kingdom","Rock",14
 "GB","United Kingdom","Symphonic Rock",1
@@ -211,7 +211,7 @@
 "Inconnu","Inconnu","Breakcore",2
 "Inconnu","Inconnu","Bubblegum Pop",2
 "Inconnu","Inconnu","Chanson",18
-"Inconnu","Inconnu","Children's Music",6
+"Inconnu","Inconnu","Children Music",6
 "Inconnu","Inconnu","Chillwave",1
 "Inconnu","Inconnu","Christian",4
 "Inconnu","Inconnu","Christmas",5
@@ -323,7 +323,7 @@
 "Inconnu","Inconnu","Psychedelic Pop",1
 "Inconnu","Inconnu","Psychedelic Rock",6
 "Inconnu","Inconnu","Punk Rock",82
-"Inconnu","Inconnu","R&B",21
+"Inconnu","Inconnu","RandB",21
 "Inconnu","Inconnu","Rap Rock",1
 "Inconnu","Inconnu","Reggae",15
 "Inconnu","Inconnu","Reggaeton",1
@@ -515,7 +515,7 @@
 "US","United States","Psychedelic Pop",1
 "US","United States","Psychedelic Rock",6
 "US","United States","Punk Rock",5
-"US","United States","R&B",31
+"US","United States","RandB",31
 "US","United States","Rap Rock",3
 "US","United States","Reggae",8
 "US","United States","RIO",1
@@ -552,7 +552,7 @@
 "XE","Europe North","New Wave",1
 "XE","Europe North","Post-Punk",1
 "XE","Europe North","Punk Rock",1
-"XE","Europe North","R&B",1
+"XE","Europe North","RandB",1
 "XE","Europe North","Symphonic Metal",1
 "XE","Europe North","Viking Metal",2
 "XW","Palestinian Territory","Chill-out",1

@@ -58,7 +58,7 @@
 "BE","RIO","1984",1
 "BE","RIO","1986",1
 "BE","Rock","2004",1
-"BR","Children's Music","2004",1
+"BR","Children Music","2004",1
 "BR","Death Metal","1998",1
 "BR","Death Metal","1999",1
 "BR","Death Metal","2001",1
@@ -325,7 +325,7 @@
 "ES","Gothic Metal","2010",1
 "ES","Indie Pop","2008",1
 "ES","Indie Pop","2011",1
-"ES","R&B","2005",1
+"ES","RandB","2005",1
 "ES","Symphonic Metal","2002",1
 "ES","Symphonic Metal","2011",1
 "FI","Death Metal","2009",1
@@ -480,8 +480,8 @@
 "GB","Punk Rock","1997",1
 "GB","Punk Rock","2004",1
 "GB","Punk Rock","2010",1
-"GB","R&B","2000",1
-"GB","R&B","2009",1
+"GB","RandB","2000",1
+"GB","RandB","2009",1
 "GB","Reggae","1988",1
 "GB","Reggae","2001",1
 "GB","Rock","1977",1
@@ -598,10 +598,10 @@
 "Inconnu","Chanson","2001",1
 "Inconnu","Chanson","2009",1
 "Inconnu","Chanson","2010",1
-"Inconnu","Children's Music","1991",1
-"Inconnu","Children's Music","1992",2
-"Inconnu","Children's Music","2003",2
-"Inconnu","Children's Music","2004",1
+"Inconnu","Children Music","1991",1
+"Inconnu","Children Music","1992",2
+"Inconnu","Children Music","2003",2
+"Inconnu","Children Music","2004",1
 "Inconnu","Chillwave","2015",1
 "Inconnu","Christian","2001",1
 "Inconnu","Christian","2002",1
@@ -1326,22 +1326,22 @@
 "Inconnu","Punk Rock","2008",1
 "Inconnu","Punk Rock","2010",2
 "Inconnu","Punk Rock","2011",1
-"Inconnu","R&B","1979",1
-"Inconnu","R&B","1981",1
-"Inconnu","R&B","1982",1
-"Inconnu","R&B","1988",3
-"Inconnu","R&B","1991",1
-"Inconnu","R&B","1992",1
-"Inconnu","R&B","1995",1
-"Inconnu","R&B","1996",1
-"Inconnu","R&B","2001",1
-"Inconnu","R&B","2002",2
-"Inconnu","R&B","2003",1
-"Inconnu","R&B","2004",1
-"Inconnu","R&B","2009",2
-"Inconnu","R&B","2010",2
-"Inconnu","R&B","2011",1
-"Inconnu","R&B","2015",1
+"Inconnu","RandB","1979",1
+"Inconnu","RandB","1981",1
+"Inconnu","RandB","1982",1
+"Inconnu","RandB","1988",3
+"Inconnu","RandB","1991",1
+"Inconnu","RandB","1992",1
+"Inconnu","RandB","1995",1
+"Inconnu","RandB","1996",1
+"Inconnu","RandB","2001",1
+"Inconnu","RandB","2002",2
+"Inconnu","RandB","2003",1
+"Inconnu","RandB","2004",1
+"Inconnu","RandB","2009",2
+"Inconnu","RandB","2010",2
+"Inconnu","RandB","2011",1
+"Inconnu","RandB","2015",1
 "Inconnu","Rap Rock","2013",1
 "Inconnu","Reggae","1982",1
 "Inconnu","Reggae","1983",1
@@ -2042,25 +2042,25 @@
 "US","Punk Rock","1994",1
 "US","Punk Rock","1996",1
 "US","Punk Rock","2007",2
-"US","R&B","1982",1
-"US","R&B","1988",1
-"US","R&B","1990",2
-"US","R&B","1991",1
-"US","R&B","1993",1
-"US","R&B","1994",2
-"US","R&B","1996",1
-"US","R&B","1997",2
-"US","R&B","1998",3
-"US","R&B","1999",2
-"US","R&B","2001",3
-"US","R&B","2003",1
-"US","R&B","2004",2
-"US","R&B","2005",1
-"US","R&B","2006",1
-"US","R&B","2007",1
-"US","R&B","2008",2
-"US","R&B","2010",3
-"US","R&B","2012",1
+"US","RandB","1982",1
+"US","RandB","1988",1
+"US","RandB","1990",2
+"US","RandB","1991",1
+"US","RandB","1993",1
+"US","RandB","1994",2
+"US","RandB","1996",1
+"US","RandB","1997",2
+"US","RandB","1998",3
+"US","RandB","1999",2
+"US","RandB","2001",3
+"US","RandB","2003",1
+"US","RandB","2004",2
+"US","RandB","2005",1
+"US","RandB","2006",1
+"US","RandB","2007",1
+"US","RandB","2008",2
+"US","RandB","2010",3
+"US","RandB","2012",1
 "US","Rap Rock","2000",1
 "US","Rap Rock","2009",1
 "US","Rap Rock","2011",1
@@ -2157,7 +2157,7 @@
 "XE","New Wave","1984",1
 "XE","Post-Punk","2013",1
 "XE","Punk Rock","2010",1
-"XE","R&B","1996",1
+"XE","RandB","1996",1
 "XE","Symphonic Metal","2007",1
 "XE","Viking Metal","2011",2
 "XW","Chill-out","2013",1
