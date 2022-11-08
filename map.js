@@ -23,17 +23,7 @@ let svg = d3.select("body").append("svg")
     .attr('width', width + margin.left + margin.right)
     .attr('height', height + margin.top + margin.bottom)
 
-svg
-    .append('defs')
-    .append('pattern')
-    .attr('id', 'diagonalHatch')
-    .attr('patternUnits', 'userSpaceOnUse')
-    .attr('width', 4)
-    .attr('height', 4)
-    .append('path')
-    .attr('d', 'M-1,1 l2,-2 M0,4 l4,-4 M3,5 l2,-2')
-    .attr('stroke', '#000000')
-    .attr('stroke-width', 1);
+
 
 
 let map = async (init) => {
@@ -54,6 +44,18 @@ let map = async (init) => {
     var b = path.bounds(geojson),
         s = .80 / Math.max((b[1][0] - b[0][0]) / width, (b[1][1] - b[0][1]) / height),
         t = [(width - s * (b[1][0] + b[0][0])) / 2, (height - s * (b[1][1] + b[0][1])) / 2];
+
+    svg
+        .append('defs')
+        .append('pattern')
+        .attr('id', 'diagonalHatch')
+        .attr('patternUnits', 'userSpaceOnUse')
+        .attr('width', 4)
+        .attr('height', 4)
+        .append('path')
+        .attr('d', 'M-1,1 l2,-2 M0,4 l4,-4 M3,5 l2,-2')
+        .attr('stroke', '#000000')
+        .attr('stroke-width', 1);
 
     projection
         .scale(s)
@@ -167,9 +169,26 @@ function colorMap() {
                 tooltip.attr("transform", "translate(" + mouse[0] + "," + (mouse[1] - 75) + ")");
             })
             .on('click', function () {
+
+                d3.select("body")
+                    .insert("button","svg")
+                    .attr('type', "button")
+                    .attr('id', 'buttonRetour')
+                    .text("Retour à la carte")
+                    .on('click', function () {
+                        d3.select("#buttonList").remove();
+                        d3.select("#buttonRetour").remove();
+                        svg.remove();
+                        svg = d3.select("body").append("svg")
+                            .attr('width', width + margin.left + margin.right)
+                            .attr('height', height + margin.top + margin.bottom)
+                        map(false);
+                    });
+
                 let drawLineChart = new DrawLineChart(svg);
-                drawLineChart.genreParAnnee(true, code)
-                d3.select("#buttonList")
+                drawLineChart.genreParAnnee(true, code);
+
+                /*d3.select("#buttonList")
                     .append("button")
                     .attr('type', "button")
                     .attr('id', 'buttonRetour')
@@ -183,7 +202,7 @@ function colorMap() {
                             .attr('width', width + margin.left + margin.right)
                             .attr('height', height + margin.top + margin.bottom)
                         map(false);
-                    })
+                    })*/
             })
         ;
     });
@@ -315,9 +334,13 @@ function addCircleForInconnu() {
                 .attr('id', 'buttonRetour')
                 .text("Retour à la carte")
                 .on('click', function () {
-                    d3.select("#buttonRetour").remove()
-                    svg.remove();
+                    d3.select("#genres").remove();
+                    d3.select("#clear").remove();
                     d3.select("#List").remove();
+
+
+                    svg.remove();
+
                     svg = d3.select("body").append("svg")
                         .attr('width', width + margin.left + margin.right)
                         .attr('height', height + margin.top + margin.bottom)

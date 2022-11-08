@@ -40,6 +40,7 @@ export default class DrawLineChart {
             this.svg
                 .attr('width', this.width + this.margin.left + this.margin.right)
                 .attr('height', this.height + this.margin.top + this.margin.bottom)
+                .style("border","rgb(101, 101, 101) 3px ridge")
         }
         const x = d3.scaleLinear()
             .domain([this.minMax[0], this.minMax[1]])
@@ -201,21 +202,27 @@ export default class DrawLineChart {
         this.copieData = Array.from(this.data);
         let fivemax = this.find5max(this.data);
         this.minMax = this.findMinAndMax(this.data)
-        let container = document.createElement("div");
+        d3.select("body").insert("div","svg").attr("id","buttonList")
         d3.select("#buttonList")
             .append("p")
-            .attr('id','List')
+            .attr('id','genres')
             .text("Select genres:")
+        d3.select("#buttonList")
+            .append("div")
+            .attr('id','List')
 
         Array.from(fivemax).forEach((genre) => {
             d3.select("#List")
+                .append("div")
+                .attr("id",`checkbox-${genre}`)
+            d3.select(`#checkbox-${genre}`)
                 .append("input")
                 .attr("type","checkbox")
                 .attr("name","genre")
                 .attr("id",`genre-${genre}`)
                 .attr("checked",true)
 
-            d3.select("#List")
+            d3.select(`#checkbox-${genre}`)
                 .append("label")
                 .attr("id",`label-${genre}`)
                 .attr("for",`genre-${genre}`)
@@ -230,6 +237,7 @@ export default class DrawLineChart {
         });
         d3.select("#buttonList")
             .append("button")
+            .attr('id','clear')
             .attr('type',"submit")
             .text("Clear All Genres")
             .on('click',()=>{
@@ -261,13 +269,16 @@ export default class DrawLineChart {
                 let genre = document.getElementById('input').value;
                 if (this.allGenre.has(genre) && !fivemax.includes(genre)){
                     d3.select("#List")
+                        .append("div")
+                        .attr("id",`checkbox-${genre}`)
+                    d3.select(`#checkbox-${genre}`)
                         .append("input")
                         .attr("type","checkbox")
                         .attr("name","genre")
                         .attr("id",`genre-${genre}`)
                         .attr("checked",true)
 
-                    d3.select("#List")
+                    d3.select(`#checkbox-${genre}`)
                         .append("label")
                         .attr("id",`label-${genre}`)
                         .attr("for",`genre-${genre}`)
@@ -288,13 +299,16 @@ export default class DrawLineChart {
                             console.log(d)
                             if (!fivemax.includes(d)) {
                                 d3.select("#List")
+                                    .append("div")
+                                    .attr("id",`checkbox-${d}`)
+                                d3.select(`#checkbox-${d}`)
                                     .append("input")
                                     .attr("type","checkbox")
                                     .attr("name","genre")
                                     .attr("id",`genre-${d}`)
                                     .attr("checked",true)
 
-                                d3.select("#List")
+                                d3.select(`#checkbox-${d}`)
                                     .append("label")
                                     .attr("id",`label-${d}`)
                                     .attr("for",`genre-${d}`)
@@ -331,7 +345,7 @@ export default class DrawLineChart {
         })
 
 
-        document.querySelector("#List").appendChild(container);
+        //document.querySelector("#List").appendChild(container);
         this.drawLineChart(this.data,toMap);
     };
 
