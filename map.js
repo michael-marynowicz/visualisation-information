@@ -23,6 +23,18 @@ let svg = d3.select("body").append("svg")
     .attr('width', width + margin.left + margin.right)
     .attr('height', height + margin.top + margin.bottom)
 
+svg
+    .append('defs')
+    .append('pattern')
+    .attr('id', 'diagonalHatch')
+    .attr('patternUnits', 'userSpaceOnUse')
+    .attr('width', 4)
+    .attr('height', 4)
+    .append('path')
+    .attr('d', 'M-1,1 l2,-2 M0,4 l4,-4 M3,5 l2,-2')
+    .attr('stroke', '#000000')
+    .attr('stroke-width', 1);
+
 
 let map = async (init) => {
 
@@ -53,7 +65,7 @@ let map = async (init) => {
         .attr("d", path)
         .attr("id", d => "code" + d.id)
         .attr("class", "country")
-        .style("fill","#525050")
+        .attr('fill', 'url(#diagonalHatch)');
 
 
     // Le traitement du CSV est réalisé ici

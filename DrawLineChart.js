@@ -68,7 +68,7 @@ export default class DrawLineChart {
             .on("mouseover", (event, d) => {
                 this.div.html(d)
                     .style("left", (event.pageX) + "px")
-                    .style("top", (event.pageY - 28) + "px")
+                    .style("top", (event.pageY - 20) + "px")
                     .style("opacity", 1)
                     .html(dataGroupBy[marks.indexOf(d)]["genre"]);
             })
