@@ -4,12 +4,13 @@ export default class DrawLineChart {
     constructor(svg) {
         this.svg = svg;
         this.svg.style("padding-left","4rem")
+            .style("margin-left","1rem");
 
         this.margin = {left: 50, top: 20, bottom: 20, right: 20}; // the margins of the chart
 
         this.width = window.innerWidth - 500; // the width of the svg
 
-        this.height = window.innerHeight - 270; // the height of the svg
+        this.height = window.innerHeight - 304; // the height of the svg
 
         this.genreToPrint = [];
 
@@ -263,9 +264,11 @@ export default class DrawLineChart {
             .append("p")
             .attr('id','genres')
             .text("Selectionner les genres:")
+            .style("margin-left","1rem")
         d3.select("#buttonList")
             .append("div")
             .attr('id','List')
+            .style("margin-left","1rem")
 
         Array.from(this.fivemax).forEach((genre) => {
             this.createCheckBox(genre)
@@ -280,6 +283,9 @@ export default class DrawLineChart {
             .append("button")
             .attr('id','clear')
             .attr('type',"submit")
+            .style("margin-top","1rem")
+            .style("margin-bottom","1rem")
+            .style("margin-left","1rem")
             .text("Supprimer la selection")
             .on('click',()=>{
                 this.fivemax.forEach((genre) => {
@@ -287,7 +293,6 @@ export default class DrawLineChart {
                     input.checked=false;
                     this.data=[];
                     this.genreToPrint=[];
-                    //this.colors=[];
                     this.svg.selectAll("*").remove();
                     this.drawLineChart(this.data);
                 })
@@ -303,6 +308,8 @@ export default class DrawLineChart {
             .attr('value','')
             .attr('list','programmingLanguages')
             .attr('placeholder','Rechercher un genre')
+            .style("margin-bottom","1rem")
+            .style("margin-left","1rem")
         d3.select(".text-container")
             .append("button")
             .attr('type',"submit")

@@ -178,6 +178,7 @@ function colorMap() {
                     .attr('type', "button")
                     .attr('id', 'buttonRetour')
                     .text("Retour à la carte")
+                    .style("margin-left","1rem")
                     .on('click', function () {
                         d3.select("#buttonList").remove();
                         d3.select("#buttonRetour").remove();
