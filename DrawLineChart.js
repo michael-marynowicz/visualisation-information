@@ -15,111 +15,13 @@ export default class DrawLineChart {
 
         this.colors = [];
 
+        this.fivemax=[];
+
         this.div = d3.select("body").append("div")
             .attr("class", "tooltip")
             .style("opacity", 0);
     }
 
-
-
-
-
-    parseRowGenreParAnnee = (d) => {
-        if (d.publicationDate==="Inconnu" )d.publicationDate=2023
-        else d.publicationDate = +d.publicationDate;
-        d.count = +d.count;
-        return d;
-    }
-
-
-    xValue = (d) => d.publicationDate
-
-    yValue = (d) => d.count
-
-    drawLineChart(data, toMap = false) {
-        if (toMap) {
-            this.svg.selectAll("*").remove();
-            this.svg
-                .attr('width', this.width + this.margin.left + this.margin.right)
-                .attr('height', this.height + this.margin.top + this.margin.bottom)
-                .style("border","rgb(101, 101, 101) 3px ridge")
-        }
-        const x = d3.scaleLinear()
-            .domain([this.minMax[0], this.minMax[1]])
-            .range([this.margin.left, this.width - this.margin.right])
-        ;
-
-
-        const y = d3.scaleLinear()
-            .domain(d3.extent(data, this.yValue))
-            .range([this.height - this.margin.bottom, this.margin.top])
-        ;
-        const dataGroupBy = this.groupByGenreAndYear(data)
-
-        const marks = dataGroupBy.map(d => ({
-            x: x(this.xValue(d)),
-            y: y(this.yValue(d)),
-        }));
-
-        this.svg.selectAll('circle')
-            .data(marks)
-            .join('circle')
-            .attr('cx', d => d.x)
-            .attr('cy', d => d.y)
-            .attr('r', 5)
-            .style("fill", d => this.colors.length > 0 ? this.applyColor(marks, d) : "#000000")
-            .on("mouseover", (event, d) => {
-                this.div.html(d)
-                    .style("left", (event.pageX) + "px")
-                    .style("top", (event.pageY - 20) + "px")
-                    .style("opacity", 1)
-                    .html(dataGroupBy[marks.indexOf(d)]["genreGroup"]);
-            })
-            .on("mouseout", () => {
-                this.div.transition()
-                    .duration(500)
-                    .style("opacity", 0);
-            })
-        ;
-        let axis =d3.axisBottom(x);
-
-        axis.ticks(10)
-            .tickFormat(function(d) {
-                return d.toString();
-            });
-
-
-        this.svg.append('g')
-            .attr('transform', `translate(${this.margin.left},0)`)
-            .call(d3.axisLeft(y));
-
-        this.svg.append("text")
-            .attr("y", this.height/2)
-            .attr("x",-20)
-            .attr("dy", "1em")
-            .style("text-anchor", "middle")
-            .text("Nombre")
-        this.svg.append("text")
-            .attr("y", (this.height/2)+20)
-            .attr("x",-20)
-            .attr("dy", "1em")
-            .style("text-anchor", "middle")
-            .text("d'albums");
-
-
-        this.svg.append('g')
-            .attr('transform', `translate(0,${this.height - this.margin.bottom})`)
-            .call(axis);
-        this.svg.append("text")
-            .attr("transform",
-                "translate(" + (this.width/2) + " ," +
-                (this.height + this.margin.top ) + ")")
-            .style("text-anchor", "middle")
-            .text("Date");
-
-
-
-    }
 
     findMinAndMax(data){
         let min=data[0]["publicationDate"]
@@ -157,7 +59,6 @@ export default class DrawLineChart {
     applyColor(marks, d) {
         const index = marks.indexOf(d)
         d.genre = this.data[index]["genre"]
-        console.log(this.fivemax,this.colors,this.fivemax.indexOf(d.genre),d.genre)
         return this.colors[this.fivemax.indexOf(d.genre)]
     }
 
@@ -209,6 +110,122 @@ export default class DrawLineChart {
         this.drawLineChart(this.data);
     }
 
+
+    createCheckBox(genre){
+        this.colors.push('#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0').toUpperCase())
+        this.fivemax.push(genre)
+        d3.select("#List")
+            .append("div")
+            .attr("id",`checkbox-${genre}`)
+        d3.select(`#checkbox-${genre}`)
+            .append("input")
+            .attr("type","checkbox")
+            .attr("name","genre")
+            .attr("id",`genre-${genre}`)
+            .attr("checked",true)
+
+        d3.select(`#checkbox-${genre}`)
+            .append("label")
+            .attr("id",`label-${genre}`)
+            .attr("for",`genre-${genre}`)
+            .text(genre)
+    }
+
+    parseRowGenreParAnnee = (d) => {
+        if (d.publicationDate==="Inconnu" )d.publicationDate=2020
+        else d.publicationDate = +d.publicationDate;
+        d.count = +d.count;
+        return d;
+    }
+
+    xValue = (d) => d.publicationDate
+
+    yValue = (d) => d.count
+
+    drawLineChart(data, toMap = false) {
+        if (toMap) {
+            this.svg.selectAll("*").remove();
+            this.svg
+                .attr('width', this.width + this.margin.left + this.margin.right)
+                .attr('height', this.height + this.margin.top + this.margin.bottom)
+                .style("border","rgb(101, 101, 101) 3px ridge")
+        }
+        const x = d3.scaleLinear()
+            .domain([this.minMax[0], this.minMax[1]])
+            .range([this.margin.left, this.width - this.margin.right])
+        ;
+
+
+        const y = d3.scaleLinear()
+            .domain(d3.extent(data, this.yValue))
+            .range([this.height - this.margin.bottom, this.margin.top])
+        ;
+        const dataGroupBy = this.groupByGenreAndYear(data)
+
+        const marks = dataGroupBy.map(d => ({
+            x: x(this.xValue(d)),
+            y: y(this.yValue(d)),
+        }));
+
+        this.svg.selectAll('circle')
+            .data(marks)
+            .join('circle')
+            .attr('cx', d => d.x)
+            .attr('cy', d => d.y)
+            .attr('r', 5)
+            .style("fill", d => this.colors.length > 0 ? this.applyColor(marks, d) : "#000000")
+            .on("mouseover", (event, d) => {
+                this.div.html(d)
+                    .style("left", (event.pageX) + "px")
+                    .style("top", (event.pageY - 20) + "px")
+                    .style("opacity", 1)
+                    .html(dataGroupBy[marks.indexOf(d)]["genreGroup"]);
+            })
+            .on("mouseout", () => {
+                this.div.transition()
+                    .duration(500)
+                    .style("opacity", 0);
+            })
+        ;
+        let axis =d3.axisBottom(x);
+        axis.ticks(10)
+            .tickFormat(function(d) {
+                if (d===2020) return "Inconnu";
+                return d.toString();
+            });
+
+
+        this.svg.append('g')
+            .attr('transform', `translate(${this.margin.left},0)`)
+            .call(d3.axisLeft(y));
+
+        this.svg.append("text")
+            .attr("y", this.height/2)
+            .attr("x",-20)
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .text("Nombre")
+        this.svg.append("text")
+            .attr("y", (this.height/2)+20)
+            .attr("x",-20)
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .text("d'albums");
+
+
+        this.svg.append('g')
+            .attr('transform', `translate(0,${this.height - this.margin.bottom})`)
+            .call(axis);
+        this.svg.append("text")
+            .attr("transform",
+                "translate(" + (this.width/2) + " ," +
+                (this.height + this.margin.top ) + ")")
+            .style("text-anchor", "middle")
+            .text("Date");
+
+
+
+    }
 
 
     genreParAnnee = async (toMap,countryCode,countryName) => {
@@ -274,7 +291,7 @@ export default class DrawLineChart {
                     this.svg.selectAll("*").remove();
                     this.drawLineChart(this.data);
                 })
-        })
+            })
 
         d3.select("#buttonList")
             .append('div')
@@ -341,26 +358,6 @@ export default class DrawLineChart {
 
         this.drawLineChart(this.data,toMap);
     };
-
-    createCheckBox(genre){
-        this.colors.push('#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0').toUpperCase())
-        this.fivemax.push(genre)
-        d3.select("#List")
-            .append("div")
-            .attr("id",`checkbox-${genre}`)
-        d3.select(`#checkbox-${genre}`)
-            .append("input")
-            .attr("type","checkbox")
-            .attr("name","genre")
-            .attr("id",`genre-${genre}`)
-            .attr("checked",true)
-
-        d3.select(`#checkbox-${genre}`)
-            .append("label")
-            .attr("id",`label-${genre}`)
-            .attr("for",`genre-${genre}`)
-            .text(genre)
-    }
 
 
 }
