@@ -313,7 +313,7 @@ function addCircleForInconnu() {
         })
         .on('click', function () {
             let drawLineChart = new DrawLineChart(svg);
-            drawLineChart.genreParAnnee(true, "Inconnu Island");
+            drawLineChart.genreParAnnee(true, "Inconnu","Inconnu Island");
             d3.select("body")
                 .insert("button","svg")
                 .attr('type', "button")
