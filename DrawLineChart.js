@@ -9,7 +9,7 @@ export default class DrawLineChart {
 
         this.width = window.innerWidth - 500; // the width of the svg
 
-        this.height = window.innerHeight - 200; // the height of the svg
+        this.height = window.innerHeight - 270; // the height of the svg
 
         this.genreToPrint = [];
 
