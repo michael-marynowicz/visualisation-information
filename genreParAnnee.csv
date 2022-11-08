@@ -1,4 +1,14 @@
 "country","genre","publicationDate","count"
+"AR","Inconnu","1981",1
+"AR","Inconnu","1982",1
+"AR","Inconnu","1983",1
+"AR","Inconnu","1984",1
+"AR","Inconnu","1985",1
+"AR","Inconnu","1987",1
+"AR","Inconnu","1989",1
+"AR","Inconnu","1998",1
+"AR","Inconnu","2005",1
+"AR","Inconnu","2007",1
 "AR","Rock","2004",1
 "AR","Rock","2006",1
 "AR","Rock","2008",1
@@ -14,6 +24,7 @@
 "AT","Gothic Metal","1997",1
 "AT","Gothic Metal","1999",1
 "AT","Gothic Metal","2001",1
+"AT","Inconnu","2004",1
 "AT","Modern Classical","2015",1
 "AT","Neofolk","2005",1
 "AT","Neofolk","2008",1
@@ -31,6 +42,13 @@
 "AU","Comedy","2004",1
 "AU","Country","2000",1
 "AU","Grindcore","2002",1
+"AU","Inconnu","1993",1
+"AU","Inconnu","1996",1
+"AU","Inconnu","2004",1
+"AU","Inconnu","2005",1
+"AU","Inconnu","2008",1
+"AU","Inconnu","2009",1
+"AU","Inconnu","2010",2
 "AU","Indie","2005",1
 "AU","Indie Rock","2003",1
 "AU","Jazz","1982",1
@@ -48,6 +66,11 @@
 "BE","Dark Electro","2005",2
 "BE","Doom Metal","2001",1
 "BE","Folk","2003",1
+"BE","Inconnu","1978",1
+"BE","Inconnu","1995",1
+"BE","Inconnu","2000",1
+"BE","Inconnu","2001",1
+"BE","Inconnu","2010",1
 "BE","Metalcore","2000",1
 "BE","Pop","1988",1
 "BE","Pop","1989",1
@@ -76,6 +99,16 @@
 "BR","Heavy Metal","1995",1
 "BR","Heavy Metal","1996",1
 "BR","Heavy Metal","2007",1
+"BR","Inconnu","1993",1
+"BR","Inconnu","1995",1
+"BR","Inconnu","1997",1
+"BR","Inconnu","1999",1
+"BR","Inconnu","2003",1
+"BR","Inconnu","2004",1
+"BR","Inconnu","2005",1
+"BR","Inconnu","2006",1
+"BR","Inconnu","2010",1
+"BR","Inconnu","2012",1
 "BR","MPB","1993",1
 "BR","MPB","1997",2
 "BR","MPB","2002",2
@@ -94,6 +127,11 @@
 "CA","Avant-garde Metal","2003",1
 "CA","Avant-garde Metal","2011",1
 "CA","Folk","1988",1
+"CA","Inconnu","1972",1
+"CA","Inconnu","1976",1
+"CA","Inconnu","2003",1
+"CA","Inconnu","2008",1
+"CA","Inconnu","2009",2
 "CA","Indie Pop","2007",1
 "CA","Indie Pop","2008",1
 "CA","Indie Pop","2010",1
@@ -106,7 +144,13 @@
 "CA","Techno","2007",1
 "CL","Doom Metal","2007",1
 "CL","Folk Metal","2005",1
+"CL","Inconnu","2001",1
+"CL","Inconnu","2003",2
+"CL","Inconnu","2005",1
+"CL","Inconnu","2006",1
 "CL","Rock","2012",1
+"CZ","Inconnu","2004",1
+"CZ","Inconnu","2007",1
 "CZ","Punk Rock","2005",1
 "CZ","Punk Rock","2008",1
 "CZ","World Music","1997",1
@@ -206,6 +250,39 @@
 "DE","Heavy Metal","2006",1
 "DE","Heavy Metal","2008",1
 "DE","Heavy Metal","2011",2
+"DE","Inconnu","1970",1
+"DE","Inconnu","1972",1
+"DE","Inconnu","1978",1
+"DE","Inconnu","1980",1
+"DE","Inconnu","1983",1
+"DE","Inconnu","1984",1
+"DE","Inconnu","1985",1
+"DE","Inconnu","1986",2
+"DE","Inconnu","1987",1
+"DE","Inconnu","1988",3
+"DE","Inconnu","1989",2
+"DE","Inconnu","1990",2
+"DE","Inconnu","1991",3
+"DE","Inconnu","1992",2
+"DE","Inconnu","1993",5
+"DE","Inconnu","1994",1
+"DE","Inconnu","1995",3
+"DE","Inconnu","1996",5
+"DE","Inconnu","1997",6
+"DE","Inconnu","1998",5
+"DE","Inconnu","1999",3
+"DE","Inconnu","2000",5
+"DE","Inconnu","2001",8
+"DE","Inconnu","2002",7
+"DE","Inconnu","2003",5
+"DE","Inconnu","2004",11
+"DE","Inconnu","2005",4
+"DE","Inconnu","2006",4
+"DE","Inconnu","2007",6
+"DE","Inconnu","2008",6
+"DE","Inconnu","2009",5
+"DE","Inconnu","2010",3
+"DE","Inconnu","2011",3
 "DE","Indie","1996",1
 "DE","Indie Pop","2003",1
 "DE","Indie Pop","2006",1
@@ -315,6 +392,12 @@
 "DK","Heavy Metal","2005",1
 "DK","Heavy Metal","2007",1
 "DK","Heavy Metal","2008",1
+"DK","Inconnu","2005",1
+"DK","Inconnu","2006",1
+"DK","Inconnu","2008",1
+"DK","Inconnu","2009",1
+"DK","Inconnu","2010",1
+"DK","Inconnu","2012",1
 "DK","Pop","1981",1
 "EE","Indie Pop","2006",1
 "EE","Indie Pop","2007",1
@@ -323,6 +406,12 @@
 "EE","Indie Pop","2011",1
 "EE","Neofolk","2011",1
 "ES","Gothic Metal","2010",1
+"ES","Inconnu","2001",1
+"ES","Inconnu","2002",1
+"ES","Inconnu","2003",1
+"ES","Inconnu","2005",1
+"ES","Inconnu","2007",2
+"ES","Inconnu","2009",1
 "ES","Indie Pop","2008",1
 "ES","Indie Pop","2011",1
 "ES","RandB","2005",1
@@ -336,6 +425,20 @@
 "FI","Hip Hop","2005",2
 "FI","Hip Hop","2008",1
 "FI","Hip Hop","2009",1
+"FI","Inconnu","1991",1
+"FI","Inconnu","1998",1
+"FI","Inconnu","1999",2
+"FI","Inconnu","2000",3
+"FI","Inconnu","2001",5
+"FI","Inconnu","2002",4
+"FI","Inconnu","2003",6
+"FI","Inconnu","2004",1
+"FI","Inconnu","2005",4
+"FI","Inconnu","2006",5
+"FI","Inconnu","2007",6
+"FI","Inconnu","2008",4
+"FI","Inconnu","2011",1
+"FI","Inconnu","2012",1
 "FI","Industrial","2003",2
 "FI","Industrial Metal","2004",1
 "FI","Industrial Metal","2005",1
@@ -373,6 +476,25 @@
 "FR","French Pop","2007",1
 "FR","French Pop","2008",1
 "FR","Hip Hop","2008",1
+"FR","Inconnu","1989",1
+"FR","Inconnu","1990",1
+"FR","Inconnu","1992",1
+"FR","Inconnu","1993",1
+"FR","Inconnu","1996",2
+"FR","Inconnu","1997",1
+"FR","Inconnu","1998",2
+"FR","Inconnu","2000",3
+"FR","Inconnu","2001",1
+"FR","Inconnu","2003",2
+"FR","Inconnu","2004",1
+"FR","Inconnu","2005",2
+"FR","Inconnu","2006",1
+"FR","Inconnu","2007",1
+"FR","Inconnu","2008",1
+"FR","Inconnu","2009",2
+"FR","Inconnu","2010",1
+"FR","Inconnu","2012",1
+"FR","Inconnu","2013",1
 "FR","Indie","2005",1
 "FR","Pop","1985",1
 "FR","Pop","1991",1
@@ -424,6 +546,26 @@
 "GB","Heavy Metal","1981",1
 "GB","Heavy Metal","2013",1
 "GB","Hip Hop","1991",1
+"GB","Inconnu","1970",2
+"GB","Inconnu","1971",1
+"GB","Inconnu","1974",1
+"GB","Inconnu","1986",1
+"GB","Inconnu","1995",1
+"GB","Inconnu","1996",1
+"GB","Inconnu","1998",1
+"GB","Inconnu","1999",2
+"GB","Inconnu","2000",1
+"GB","Inconnu","2001",2
+"GB","Inconnu","2002",1
+"GB","Inconnu","2003",3
+"GB","Inconnu","2004",3
+"GB","Inconnu","2005",3
+"GB","Inconnu","2006",4
+"GB","Inconnu","2007",4
+"GB","Inconnu","2008",4
+"GB","Inconnu","2009",2
+"GB","Inconnu","2010",2
+"GB","Inconnu","2012",1
 "GB","Indie Rock","1995",1
 "GB","Indie Rock","2006",4
 "GB","Indie Rock","2008",1
@@ -505,6 +647,8 @@
 "GB","Trip Hop","2008",1
 "GB","Vocal Jazz","2012",1
 "GR","Dark Ambient","2009",1
+"HR","Inconnu","2000",1
+"HR","Inconnu","2002",1
 "IN","Blues","2012",1
 "Inconnu","Acoustic","1982",1
 "Inconnu","Acoustic","1992",1
@@ -983,6 +1127,65 @@
 "Inconnu","Horrorcore","2003",1
 "Inconnu","Horrorcore","2005",2
 "Inconnu","House","2009",1
+"Inconnu","Inconnu","????",3
+"Inconnu","Inconnu","1956",1
+"Inconnu","Inconnu","1957",1
+"Inconnu","Inconnu","1960",1
+"Inconnu","Inconnu","1963",2
+"Inconnu","Inconnu","1964",3
+"Inconnu","Inconnu","1965",3
+"Inconnu","Inconnu","1966",1
+"Inconnu","Inconnu","1967",2
+"Inconnu","Inconnu","1968",4
+"Inconnu","Inconnu","1969",2
+"Inconnu","Inconnu","1970",1
+"Inconnu","Inconnu","1971",5
+"Inconnu","Inconnu","1972",5
+"Inconnu","Inconnu","1973",4
+"Inconnu","Inconnu","1974",9
+"Inconnu","Inconnu","1975",7
+"Inconnu","Inconnu","1976",7
+"Inconnu","Inconnu","1977",11
+"Inconnu","Inconnu","1978",5
+"Inconnu","Inconnu","1979",9
+"Inconnu","Inconnu","1980",10
+"Inconnu","Inconnu","1981",6
+"Inconnu","Inconnu","1982",18
+"Inconnu","Inconnu","1983",9
+"Inconnu","Inconnu","1984",7
+"Inconnu","Inconnu","1985",13
+"Inconnu","Inconnu","1986",7
+"Inconnu","Inconnu","1987",17
+"Inconnu","Inconnu","1988",15
+"Inconnu","Inconnu","1989",14
+"Inconnu","Inconnu","1990",21
+"Inconnu","Inconnu","1991",24
+"Inconnu","Inconnu","1992",26
+"Inconnu","Inconnu","1993",27
+"Inconnu","Inconnu","1994",26
+"Inconnu","Inconnu","1995",36
+"Inconnu","Inconnu","1996",37
+"Inconnu","Inconnu","1997",52
+"Inconnu","Inconnu","1998",47
+"Inconnu","Inconnu","1999",55
+"Inconnu","Inconnu","2000",48
+"Inconnu","Inconnu","2001",50
+"Inconnu","Inconnu","2002",56
+"Inconnu","Inconnu","2003",66
+"Inconnu","Inconnu","2004",57
+"Inconnu","Inconnu","2005",53
+"Inconnu","Inconnu","2006",81
+"Inconnu","Inconnu","2007",69
+"Inconnu","Inconnu","2008",76
+"Inconnu","Inconnu","2009",66
+"Inconnu","Inconnu","2010",74
+"Inconnu","Inconnu","2011",53
+"Inconnu","Inconnu","2012",60
+"Inconnu","Inconnu","2013",29
+"Inconnu","Inconnu","2014",42
+"Inconnu","Inconnu","2015",21
+"Inconnu","Inconnu","2016",2
+"Inconnu","Inconnu","Inconnu",2568
 "Inconnu","Indie","2009",2
 "Inconnu","Indie","2011",1
 "Inconnu","Indie","2013",1
@@ -1560,6 +1763,24 @@
 "IT","Alternative Rock","2001",2
 "IT","Gothic Metal","2006",1
 "IT","Grunge","1999",1
+"IT","Inconnu","1972",1
+"IT","Inconnu","1979",1
+"IT","Inconnu","1991",1
+"IT","Inconnu","1993",1
+"IT","Inconnu","1995",1
+"IT","Inconnu","1997",1
+"IT","Inconnu","1998",1
+"IT","Inconnu","1999",1
+"IT","Inconnu","2000",1
+"IT","Inconnu","2002",1
+"IT","Inconnu","2004",5
+"IT","Inconnu","2005",1
+"IT","Inconnu","2006",2
+"IT","Inconnu","2007",2
+"IT","Inconnu","2008",2
+"IT","Inconnu","2009",1
+"IT","Inconnu","2010",1
+"IT","Inconnu","2015",1
 "IT","Jazz","1998",1
 "IT","MPB","2006",1
 "IT","Pop","1987",1
@@ -1585,6 +1806,19 @@
 "JP","Folk Metal","2011",1
 "JP","Hard Rock","2011",1
 "JP","Heavy Metal","2009",1
+"JP","Inconnu","1995",1
+"JP","Inconnu","1997",1
+"JP","Inconnu","1998",3
+"JP","Inconnu","1999",1
+"JP","Inconnu","2001",2
+"JP","Inconnu","2002",1
+"JP","Inconnu","2005",1
+"JP","Inconnu","2006",1
+"JP","Inconnu","2007",2
+"JP","Inconnu","2009",2
+"JP","Inconnu","2010",2
+"JP","Inconnu","2011",1
+"JP","Inconnu","2012",1
 "JP","J-Pop","1996",1
 "JP","J-Pop","2010",1
 "JP","J-Pop","2011",1
@@ -1608,6 +1842,8 @@
 "JP","Visual Kei","2006",1
 "JP","Visual Kei","2007",2
 "JP","Vocal","2000",1
+"MX","Inconnu","2004",1
+"MX","Inconnu","2007",1
 "NL","Alternative Rock","2003",1
 "NL","Black Metal","1997",1
 "NL","Black Metal","2000",1
@@ -1622,6 +1858,13 @@
 "NL","Hard Rock","1982",1
 "NL","Hard Rock","1983",1
 "NL","Heavy Metal","1992",1
+"NL","Inconnu","1975",1
+"NL","Inconnu","1987",1
+"NL","Inconnu","1989",1
+"NL","Inconnu","1996",1
+"NL","Inconnu","1998",1
+"NL","Inconnu","1999",1
+"NL","Inconnu","2001",1
 "NL","New Wave","1994",1
 "NL","Punk Rock","2000",1
 "NL","Rock","2008",1
@@ -1638,15 +1881,35 @@
 "NO","Glam Rock","2012",1
 "NO","Gothic Metal","1998",1
 "NO","Hard Rock","1994",1
+"NO","Inconnu","1995",1
+"NO","Inconnu","1997",1
+"NO","Inconnu","1998",2
+"NO","Inconnu","2001",1
+"NO","Inconnu","2002",1
+"NO","Inconnu","2004",1
+"NO","Inconnu","2007",1
+"NO","Inconnu","2008",1
 "NO","Pop","1996",1
 "PL","Death Metal","1995",1
 "PL","Death Metal","1997",1
 "PL","Death Metal","2000",1
+"PL","Inconnu","1990",1
+"PL","Inconnu","1992",1
+"PL","Inconnu","1994",1
+"PL","Inconnu","1995",1
+"PL","Inconnu","1996",3
+"PL","Inconnu","1997",1
+"PL","Inconnu","1998",1
+"PL","Inconnu","2001",2
+"PL","Inconnu","2002",1
+"PL","Inconnu","2003",1
+"PL","Inconnu","2011",1
 "PL","Progressive Rock","1982",1
 "PL","Reggae","2005",1
 "PL","Reggae","2007",1
 "PL","Reggae","2010",1
 "PT","Folk Rock","2009",1
+"PT","Inconnu","2007",1
 "PT","Pop","1985",1
 "PT","Rock","1992",1
 "PT","Rock","2003",1
@@ -1654,6 +1917,13 @@
 "RO","Alternative Rock","1999",1
 "RO","Alternative Rock","2003",1
 "RO","Alternative Rock","2005",1
+"RS","Inconnu","2003",1
+"RU","Inconnu","2004",1
+"RU","Inconnu","2005",2
+"RU","Inconnu","2006",1
+"RU","Inconnu","2007",1
+"RU","Inconnu","2008",1
+"RU","Inconnu","2010",2
 "RU","Industrial Metal","2007",1
 "SE","Black Metal","2006",1
 "SE","Black Metal","2011",1
@@ -1663,12 +1933,28 @@
 "SE","Electropop","2010",1
 "SE","Hard Rock","2003",1
 "SE","Hard Rock","2005",1
+"SE","Inconnu","1993",1
+"SE","Inconnu","1994",1
+"SE","Inconnu","1996",2
+"SE","Inconnu","1997",2
+"SE","Inconnu","1998",1
+"SE","Inconnu","1999",1
+"SE","Inconnu","2001",1
+"SE","Inconnu","2002",1
+"SE","Inconnu","2004",2
+"SE","Inconnu","2006",1
+"SE","Inconnu","2007",2
+"SE","Inconnu","2009",2
+"SE","Inconnu","2010",1
+"SE","Inconnu","2011",1
 "SE","Pop","2005",1
 "SE","Pop","2006",2
 "SE","Pop","2008",1
 "SE","Psychedelic Rock","2007",1
 "SE","Rock","1975",1
 "SE","Synthpop","2006",1
+"SI","Inconnu","2000",1
+"UA","Inconnu","2011",1
 "US","Acoustic","1995",1
 "US","Adult Alternative","2002",1
 "US","Aggrotech","2008",1
@@ -1886,6 +2172,48 @@
 "US","Horrorcore","2009",1
 "US","Horrorcore","2010",1
 "US","House","1999",1
+"US","Inconnu","1962",1
+"US","Inconnu","1965",2
+"US","Inconnu","1966",1
+"US","Inconnu","1968",2
+"US","Inconnu","1969",2
+"US","Inconnu","1974",1
+"US","Inconnu","1975",1
+"US","Inconnu","1980",1
+"US","Inconnu","1981",2
+"US","Inconnu","1982",2
+"US","Inconnu","1983",3
+"US","Inconnu","1984",2
+"US","Inconnu","1985",4
+"US","Inconnu","1986",3
+"US","Inconnu","1987",5
+"US","Inconnu","1988",3
+"US","Inconnu","1989",1
+"US","Inconnu","1990",5
+"US","Inconnu","1991",7
+"US","Inconnu","1992",7
+"US","Inconnu","1993",3
+"US","Inconnu","1994",7
+"US","Inconnu","1995",6
+"US","Inconnu","1996",11
+"US","Inconnu","1997",9
+"US","Inconnu","1998",10
+"US","Inconnu","1999",11
+"US","Inconnu","2000",10
+"US","Inconnu","2001",9
+"US","Inconnu","2002",12
+"US","Inconnu","2003",22
+"US","Inconnu","2004",18
+"US","Inconnu","2005",6
+"US","Inconnu","2006",14
+"US","Inconnu","2007",17
+"US","Inconnu","2008",10
+"US","Inconnu","2009",6
+"US","Inconnu","2010",11
+"US","Inconnu","2011",9
+"US","Inconnu","2012",3
+"US","Inconnu","2013",1
+"US","Inconnu","2014",2
 "US","Indie","2008",1
 "US","Indie","2009",1
 "US","Indie Pop","2004",1
@@ -2136,6 +2464,7 @@
 "US","Vocal","1992",1
 "US","Vocal Jazz","2006",1
 "US","World Music","1992",1
+"VE","Inconnu","2008",1
 "XE","Alternative Metal","2010",1
 "XE","Alternative Rock","1992",1
 "XE","Alternative Rock","1999",1
@@ -2150,6 +2479,20 @@
 "XE","Hard Rock","2015",1
 "XE","Heavy Metal","1991",1
 "XE","Hip Hop","1988",1
+"XE","Inconnu","1986",1
+"XE","Inconnu","1991",1
+"XE","Inconnu","1992",1
+"XE","Inconnu","1994",1
+"XE","Inconnu","1995",1
+"XE","Inconnu","1997",1
+"XE","Inconnu","1998",1
+"XE","Inconnu","1999",1
+"XE","Inconnu","2000",1
+"XE","Inconnu","2002",1
+"XE","Inconnu","2004",1
+"XE","Inconnu","2006",1
+"XE","Inconnu","2007",2
+"XE","Inconnu","2012",1
 "XE","Indie Rock","2006",1
 "XE","Indie Rock","2007",1
 "XE","Indie Rock","2010",1
@@ -2173,6 +2516,17 @@
 "XW","Heavy Metal","2006",1
 "XW","Hip Hop","2008",1
 "XW","Hip Hop","2009",1
+"XW","Inconnu","1997",1
+"XW","Inconnu","1999",1
+"XW","Inconnu","2000",1
+"XW","Inconnu","2001",2
+"XW","Inconnu","2004",1
+"XW","Inconnu","2007",1
+"XW","Inconnu","2008",2
+"XW","Inconnu","2009",4
+"XW","Inconnu","2010",1
+"XW","Inconnu","2011",2
+"XW","Inconnu","2012",2
 "XW","Industrial Metal","2008",1
 "XW","Melodic Death Metal","2002",1
 "XW","Orchestral","2012",1
@@ -2182,6 +2536,7 @@
 "XW","Power Metal","1998",1
 "XW","Rock","2009",1
 "XW","Rock","2014",1
+"YU","Inconnu","2001",1
 "ZA","Rock","2007",1
 "ZA","Rock","2008",1
 "ZA","Rock","2010",1

@@ -187,22 +187,6 @@ function colorMap() {
 
                 let drawLineChart = new DrawLineChart(svg);
                 drawLineChart.genreParAnnee(true, code);
-
-                /*d3.select("#buttonList")
-                    .append("button")
-                    .attr('type', "button")
-                    .attr('id', 'buttonRetour')
-                    .text("Retour à la carte")
-                    .on('click', function () {
-                        d3.select("#buttonRetour").remove();
-                        d3.select(".text-container").remove()
-                        svg.remove();
-                        d3.select("#List").remove();
-                        svg = d3.select("body").append("svg")
-                            .attr('width', width + margin.left + margin.right)
-                            .attr('height', height + margin.top + margin.bottom)
-                        map(false);
-                    })*/
             })
         ;
     });
@@ -213,7 +197,6 @@ function getAllMaxWithoutInconnu(data) {
     data.forEach(d => {
         if (d.countryCode === "Inconnu") {
             genreOfCountryInconnu.push(d)
-            //numberOfGenreOfCountryInconnu.push(d.count)
         } else {
             if (!country.includes(d.countryCode) && d.genre !== "Inconnu") {
                 country.push(d.countryCode)
@@ -226,7 +209,6 @@ function getAllMaxWithoutInconnu(data) {
             } else {
                 if (d.genre === "Inconnu") {
                     genreInconnu.push(d)
-                    //numbersInconnu.push(d.count)
                 } else {
                     let index = country.indexOf(d.countryCode)
                     if (score[index] < d.count) {
