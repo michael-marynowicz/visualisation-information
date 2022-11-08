@@ -261,7 +261,6 @@ function tooltipInconnu() {
         .style("font-size", "16px");
     var y = 0;
     var x = 0;
-    console.log("ok")
     genreOfCountryInconnu.forEach(d => {
         text.append("tspan") // Fixed text
             .attr("x", 105 + x) // ie, tooltip width / 2

@@ -11,7 +11,7 @@
 "AT","Austria","Inconnu",1
 "AT","Austria","Modern Classical",1
 "AT","Austria","Neofolk",2
-"AT","Austria","Neue Deutsche H&#xE4;rte",1
+"AT","Austria","Neue Deutsche",1
 "AT","Austria","Symphonic Metal",1
 "AU","Australia","Alternative Metal",1
 "AU","Australia","Alternative Rock",2
@@ -37,10 +37,10 @@
 "BE","Belgium","Pop",5
 "BE","Belgium","RIO",3
 "BE","Belgium","Rock",1
-"BR","Brazil","Children&apos;s Music",1
+"BR","Brazil","Children's Music",1
 "BR","Brazil","Death Metal",3
 "BR","Brazil","Folk Metal",4
-"BR","Brazil","Forr&#xF3;",1
+"BR","Brazil","Forro",1
 "BR","Brazil","Gothic Metal",2
 "BR","Brazil","Heavy Metal",8
 "BR","Brazil","Inconnu",10
@@ -100,7 +100,7 @@
 "DE","Germany","Medieval",5
 "DE","Germany","Metalcore",2
 "DE","Germany","Minimal",2
-"DE","Germany","Neue Deutsche H&#xE4;rte",10
+"DE","Germany","Neue Deutsche",10
 "DE","Germany","New Wave",1
 "DE","Germany","Piano Rock",1
 "DE","Germany","Pop",9
@@ -211,7 +211,7 @@
 "Inconnu","Inconnu","Breakcore",2
 "Inconnu","Inconnu","Bubblegum Pop",2
 "Inconnu","Inconnu","Chanson",18
-"Inconnu","Inconnu","Children&apos;s Music",6
+"Inconnu","Inconnu","Children's Music",6
 "Inconnu","Inconnu","Chillwave",1
 "Inconnu","Inconnu","Christian",4
 "Inconnu","Inconnu","Christmas",5
@@ -252,7 +252,7 @@
 "Inconnu","Inconnu","Folk Punk",1
 "Inconnu","Inconnu","Folk Rock",41
 "Inconnu","Inconnu","Folktronica",1
-"Inconnu","Inconnu","Forr&#xF3;",4
+"Inconnu","Inconnu","Forro",4
 "Inconnu","Inconnu","Francophone",1
 "Inconnu","Inconnu","Freestyle",6
 "Inconnu","Inconnu","French Pop",4
@@ -266,8 +266,7 @@
 "Inconnu","Inconnu","Gospel",12
 "Inconnu","Inconnu","Gothic",1
 "Inconnu","Inconnu","Gothic Metal",4
-"Inconnu","Inconnu","Gothic Rock",1
-"Inconnu","Inconnu","Gothic Rock&#x200F;&#x200E;",1
+"Inconnu","Inconnu","Gothic Rock",2
 "Inconnu","Inconnu","Grindcore",1
 "Inconnu","Inconnu","Groove Metal",1
 "Inconnu","Inconnu","Hard Rock",78
@@ -390,8 +389,7 @@
 "JP","Japan","Rock",1
 "JP","Japan","Soul",2
 "JP","Japan","Trip Hop",1
-"JP","Japan","Visual Kei",2
-"JP","Japan","Visual Kei&#x200E;",1
+"JP","Japan","Visual Kei",3
 "JP","Japan","Vocal",1
 "MX","Mexico","Inconnu",2
 "NL","Netherlands","Alternative Rock",1
@@ -458,8 +456,7 @@
 "US","United States","Dance",2
 "US","United States","Dance-Pop",2
 "US","United States","Dark Ambient",1
-"US","United States","Dark Wave",1
-"US","United States","Dark Wave&#x200F;&#x200E;",2
+"US","United States","Dark Wave",3
 "US","United States","Death Metal",10
 "US","United States","Deathcore",2
 "US","United States","Disco",1
@@ -523,7 +520,7 @@
 "US","United States","Reggae",8
 "US","United States","RIO",1
 "US","United States","Rock",49
-"US","United States","Rock &apos;N&apos; Roll",1
+"US","United States","Rock And Roll",1
 "US","United States","Roots",2
 "US","United States","Screamo",5
 "US","United States","Ska",1
