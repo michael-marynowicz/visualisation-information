@@ -25,7 +25,8 @@ export default class DrawLineChart {
 
 
     parseRowGenreParAnnee = (d) => {
-        d.publicationDate = +d.publicationDate;
+        if (d.publicationDate==="Inconnu" )d.publicationDate=2023
+        else d.publicationDate = +d.publicationDate;
         d.count = +d.count;
         return d;
     }
@@ -72,7 +73,7 @@ export default class DrawLineChart {
                     .style("left", (event.pageX) + "px")
                     .style("top", (event.pageY - 20) + "px")
                     .style("opacity", 1)
-                    .html(dataGroupBy[marks.indexOf(d)]["genre"]);
+                    .html(dataGroupBy[marks.indexOf(d)]["genreGroup"]);
             })
             .on("mouseout", () => {
                 this.div.transition()
@@ -145,7 +146,7 @@ export default class DrawLineChart {
                         dataGroup.splice(dataGroup.indexOf(g),1);
                     }
                 })
-                d.genre = genre
+                d.genreGroup = genre
 
 
         })
@@ -156,7 +157,8 @@ export default class DrawLineChart {
     applyColor(marks, d) {
         const index = marks.indexOf(d)
         d.genre = this.data[index]["genre"]
-        return this.colors[this.genreToPrint.indexOf(d.genre)]
+        console.log(this.fivemax,this.colors,this.fivemax.indexOf(d.genre),d.genre)
+        return this.colors[this.fivemax.indexOf(d.genre)]
     }
 
     find5max(data) {
@@ -189,11 +191,10 @@ export default class DrawLineChart {
     stickyheaddsadaer(genre, box) {
         if (box.checked) {
             this.genreToPrint.push(genre);
-            this.colors.push('#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0').toUpperCase())
         } else {
             let index = this.genreToPrint.indexOf(genre)
             this.genreToPrint.splice(index, 1);
-            this.colors.splice(index, 1);
+
         }
 
         if (this.genreToPrint.length !== 0) {
@@ -223,7 +224,7 @@ export default class DrawLineChart {
         this.minMax = this.findMinAndMax(this.data)
         this.data = this.data.filter( d => (d.country === countryCode) && this.allGenre.has(d["genre"]));
         this.copieData = Array.from(this.data);
-        let fivemax = this.find5max(this.data);
+        this.fivemax = this.find5max(this.data);
 
 
 
@@ -238,23 +239,19 @@ export default class DrawLineChart {
             .attr("id","menu");
 
 
-
-
-
         d3.select("#menu")
             .append("div")
             .attr("id","buttonList")
         d3.select("#buttonList")
             .append("p")
             .attr('id','genres')
-            .text("Select genres:")
+            .text("Selectionner les genres:")
         d3.select("#buttonList")
             .append("div")
             .attr('id','List')
 
-        Array.from(fivemax).forEach((genre) => {
+        Array.from(this.fivemax).forEach((genre) => {
             this.createCheckBox(genre)
-
             let input = d3.select(`#genre-${genre}`).node();
             this.stickyheaddsadaer(genre, input);
             d3.select(`#genre-${genre}`)
@@ -266,14 +263,14 @@ export default class DrawLineChart {
             .append("button")
             .attr('id','clear')
             .attr('type',"submit")
-            .text("Clear All Genres")
+            .text("Supprimer la selection")
             .on('click',()=>{
-                fivemax.forEach((genre) => {
+                this.fivemax.forEach((genre) => {
                     let input = d3.select(`#genre-${genre}`).node()
                     input.checked=false;
                     this.data=[];
                     this.genreToPrint=[];
-                    this.colors=[];
+                    //this.colors=[];
                     this.svg.selectAll("*").remove();
                     this.drawLineChart(this.data);
                 })
@@ -288,14 +285,14 @@ export default class DrawLineChart {
             .attr('type','text')
             .attr('value','')
             .attr('list','programmingLanguages')
-            .attr('placeholder','Search genre')
+            .attr('placeholder','Rechercher un genre')
         d3.select(".text-container")
             .append("button")
             .attr('type',"submit")
-            .text("Add genre")
+            .text("Ajouter un genre")
             .on('click',() =>{
                 let genre = document.getElementById('input').value;
-                if (this.allGenre.has(genre) && !fivemax.includes(genre)){
+                if (this.allGenre.has(genre) && !this.fivemax.includes(genre)){
                     this.createCheckBox(genre)
 
                     let input = d3.select(`#genre-${genre}`).node();
@@ -304,13 +301,12 @@ export default class DrawLineChart {
                         .on("change",()=>{
                             this.stickyheaddsadaer(genre, input);
                         })
-                    fivemax.push(genre)
                 }
                 else{
                     if (genre==="All") {
                         this.allGenre.forEach(d =>
                         {
-                            if (!fivemax.includes(d)) {
+                            if (!this.fivemax.includes(d)) {
                                 this.createCheckBox(d)
 
                                 let input = d3.select(`#genre-${d}`).node();
@@ -319,7 +315,7 @@ export default class DrawLineChart {
                                     .on("change",()=>{
                                         this.stickyheaddsadaer(d, input);
                                     })
-                                fivemax.push(d)
+
                             }
                         })
 
@@ -335,7 +331,7 @@ export default class DrawLineChart {
             .attr('value', 'All')
             .text('All')
         this.allGenre.forEach(d=>{
-            if (!fivemax.includes(d)){
+            if (!this.fivemax.includes(d)){
                 d3.select("#programmingLanguages")
                     .append("option")
                     .attr('value', d)
@@ -343,12 +339,12 @@ export default class DrawLineChart {
             }
         })
 
-
-        //document.querySelector("#List").appendChild(container);
         this.drawLineChart(this.data,toMap);
     };
 
     createCheckBox(genre){
+        this.colors.push('#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0').toUpperCase())
+        this.fivemax.push(genre)
         d3.select("#List")
             .append("div")
             .attr("id",`checkbox-${genre}`)
