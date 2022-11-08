@@ -169,7 +169,10 @@ function colorMap() {
                 tooltip.attr("transform", "translate(" + mouse[0] + "," + (mouse[1] - 75) + ")");
             })
             .on('click', function () {
+                let d = data.find(d => d.countryCode===code)
 
+                let drawLineChart = new DrawLineChart(svg);
+                drawLineChart.genreParAnnee(true, d.countryName);
                 d3.select("body")
                     .insert("button","svg")
                     .attr('type', "button")
@@ -178,6 +181,8 @@ function colorMap() {
                     .on('click', function () {
                         d3.select("#buttonList").remove();
                         d3.select("#buttonRetour").remove();
+                        d3.select("#menu").remove();
+                        d3.select("#title").remove();
                         svg.remove();
                         svg = d3.select("body").append("svg")
                             .attr('width', width + margin.left + margin.right)
@@ -185,8 +190,7 @@ function colorMap() {
                         map(false);
                     });
 
-                let drawLineChart = new DrawLineChart(svg);
-                drawLineChart.genreParAnnee(true, code);
+
             })
         ;
     });
@@ -309,25 +313,23 @@ function addCircleForInconnu() {
         })
         .on('click', function () {
             let drawLineChart = new DrawLineChart(svg);
-            drawLineChart.genreParAnnee(true, "Inconnu")
-            d3.select("#buttonList")
-                .append("button")
+            drawLineChart.genreParAnnee(true, "Inconnu Island");
+            d3.select("body")
+                .insert("button","svg")
                 .attr('type', "button")
                 .attr('id', 'buttonRetour')
                 .text("Retour à la carte")
                 .on('click', function () {
-                    d3.select("#genres").remove();
-                    d3.select("#clear").remove();
-                    d3.select("#List").remove();
-
-
+                    d3.select("#buttonList").remove();
+                    d3.select("#buttonRetour").remove();
+                    d3.select("#menu").remove();
+                    d3.select("#title").remove();
                     svg.remove();
-
                     svg = d3.select("body").append("svg")
                         .attr('width', width + margin.left + margin.right)
                         .attr('height', height + margin.top + margin.bottom)
                     map(false);
-                })
+                });
         })
     ;
 

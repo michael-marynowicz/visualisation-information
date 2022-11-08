@@ -214,6 +214,7 @@ export default class DrawLineChart {
         this.data = await d3.csv("genreParAnnee.csv", this.parseRowGenreParAnnee);
 
 
+
         this.allGenre = new Set();
         this.data.map(d => {
             d.genre = d.genre.replace(/\s/g, '-')
@@ -224,7 +225,25 @@ export default class DrawLineChart {
         this.copieData = Array.from(this.data);
         let fivemax = this.find5max(this.data);
 
-        d3.select("body").insert("div","svg").attr("id","buttonList")
+
+
+        d3.select("body")
+            .insert("h2","#buttonRetour")
+            .attr("id","title")
+            .style("text-align","center")
+            .text(countryCode)
+
+        d3.select("body")
+            .insert("div","svg")
+            .attr("id","menu");
+
+
+
+
+
+        d3.select("#menu")
+            .append("div")
+            .attr("id","buttonList")
         d3.select("#buttonList")
             .append("p")
             .attr('id','genres')
