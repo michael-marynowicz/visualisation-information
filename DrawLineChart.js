@@ -56,6 +56,18 @@ export default class DrawLineChart {
         return dataGroup
 
     }
+    applyColorLine(marks, d){
+
+        /*console.log(d[0]===marks)
+        d = { x: d[0].x, y : d[0].y};
+
+        if (marks.indexOf(d)!==-1) {
+            let index = marks.indexOf(d);
+            console.log(index);
+        }*/
+
+        //this.applyColor(marks, d);
+    }
 
     applyColor(marks, d) {
         const index = marks.indexOf(d)
@@ -156,9 +168,9 @@ export default class DrawLineChart {
             .range([this.margin.left, this.width - this.margin.right])
         ;
 
-
+        let domain = d3.extent(data, this.yValue)
         const y = d3.scaleLinear()
-            .domain(d3.extent(data, this.yValue))
+            .domain([0,domain[1]])
             .range([this.height - this.margin.bottom, this.margin.top])
         ;
         const dataGroupBy = this.groupByGenreAndYear(data)
@@ -166,7 +178,30 @@ export default class DrawLineChart {
         const marks = dataGroupBy.map(d => ({
             x: x(this.xValue(d)),
             y: y(this.yValue(d)),
+            genre : d.genre
         }));
+        let points = {};
+        marks.forEach(({x,y,genre}) => {
+            if (points[genre]) {
+                points[genre].push({x,y})
+            }
+            else {
+                points[genre]=[{x,y}];
+            }
+        })
+        for (const [genre, value] of Object.entries(points)) {
+            this.svg.append("path")
+                .datum(value)
+                .attr("fill", "none")
+                .attr("stroke", this.colors[this.fivemax.indexOf(genre)])
+                .attr("stroke-width", 1.5)
+                .attr("d", d3.line()
+                    .x(d => d.x)
+                    .y(d => d.y)
+                )
+
+        }
+
 
         this.svg.selectAll('circle')
             .data(marks)
@@ -188,6 +223,10 @@ export default class DrawLineChart {
                     .style("opacity", 0);
             })
         ;
+
+
+
+
         let axis =d3.axisBottom(x);
         axis.ticks(10)
             .tickFormat(function(d) {
