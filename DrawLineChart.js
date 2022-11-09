@@ -47,19 +47,17 @@ export default class DrawLineChart {
 
     groupByGenreAndYear(data){
         let dataGroup = Array.from(data);
-        data.forEach(d=>{
+        dataGroup.forEach(d=>{
                 let genre = d.genre;
                 dataGroup.forEach(g =>{
-                    if (g.genre!==genre && g.count===d.count && g.publicationDate===d.publicationDate){
-                        genre+=" "+g.genre;
-                        dataGroup.splice(dataGroup.indexOf(g),1);
+                    if (g.genre!==d.genre && g.count===d.count && g.publicationDate===d.publicationDate){
+                        genre+=" / "+g.genre;
                     }
                 })
                 d.genreGroup = genre
-
-
         })
-        return data
+
+        return dataGroup
 
     }
 
@@ -164,7 +162,8 @@ export default class DrawLineChart {
         const marks = dataGroupBy.map(d => ({
             x: x(this.xValue(d)),
             y: y(this.yValue(d)),
-            genre : d.genre
+            genre : d.genre,
+            genreGroup : d.genreGroup
         }));
         let points = {};
         marks.forEach(({x,y,genre}) => {
@@ -176,7 +175,6 @@ export default class DrawLineChart {
             }
         })
         for (const [genre, value] of Object.entries(points)) {
-            //console.log(this.colors[this.fivemax.indexOf(genre)],this.fivemax.indexOf(genre))
             this.svg.append("path")
                 .datum(value)
                 .attr("fill", "none")
@@ -202,7 +200,7 @@ export default class DrawLineChart {
                     .style("left", (event.pageX) + "px")
                     .style("top", (event.pageY - 20) + "px")
                     .style("opacity", 1)
-                    .html(dataGroupBy[marks.indexOf(d)]["genreGroup"]);
+                    .html(d.genreGroup);
             })
             .on("mouseout", () => {
                 this.div.transition()
@@ -357,13 +355,13 @@ export default class DrawLineChart {
                 }
                 else{
                     if (genre==="All") {
-                        console.log(this.allGenre)
                         this.allGenre.forEach(d =>
                         {
                             if (!this.fivemax.includes(d)) {
                                 this.createCheckBox(d);
                                 let input = d3.select(`#genre-${d}`).node();
-                                this.reDrawChart(d,input,toMap)
+                                this.stickyheaddsadaer(d, input);
+
                                 d3.select(`#genre-${d}`)
                                     .on("change",()=>{
                                         this.reDrawChart(d,input,toMap)
@@ -371,6 +369,8 @@ export default class DrawLineChart {
 
                             }
                         })
+                        this.svg.selectAll("*").remove();
+                        this.drawLineChart(this.data,toMap);
 
                     }
                     else alert("genre not good")
