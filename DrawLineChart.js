@@ -41,7 +41,7 @@ export default class DrawLineChart {
 
     groupByGenreAndYear(data){
         let dataGroup = Array.from(data);
-        dataGroup.forEach(d=>{
+        data.forEach(d=>{
                 let genre = d.genre;
                 dataGroup.forEach(g =>{
                     if (g.genre!==genre && g.count===d.count && g.publicationDate===d.publicationDate){
@@ -53,21 +53,10 @@ export default class DrawLineChart {
 
 
         })
-        return dataGroup
+        return data
 
     }
-    applyColorLine(marks, d){
 
-        /*console.log(d[0]===marks)
-        d = { x: d[0].x, y : d[0].y};
-
-        if (marks.indexOf(d)!==-1) {
-            let index = marks.indexOf(d);
-            console.log(index);
-        }*/
-
-        //this.applyColor(marks, d);
-    }
 
     applyColor(marks, d) {
         const index = marks.indexOf(d)
@@ -117,10 +106,6 @@ export default class DrawLineChart {
         } else {
             this.data = [];
         }
-
-        this.svg.selectAll("*").remove();
-
-        this.drawLineChart(this.data);
     }
 
 
@@ -174,7 +159,6 @@ export default class DrawLineChart {
             .range([this.height - this.margin.bottom, this.margin.top])
         ;
         const dataGroupBy = this.groupByGenreAndYear(data)
-
         const marks = dataGroupBy.map(d => ({
             x: x(this.xValue(d)),
             y: y(this.yValue(d)),
@@ -316,8 +300,11 @@ export default class DrawLineChart {
             d3.select(`#genre-${genre}`)
                 .on("change",()=>{
                     this.stickyheaddsadaer(genre, input);
+                    this.svg.selectAll("*").remove();
+                    this.drawLineChart(this.data,toMap);
                 })
         });
+
         d3.select("#buttonList")
             .append("button")
             .attr('id','clear')
@@ -363,7 +350,9 @@ export default class DrawLineChart {
                     d3.select(`#genre-${genre}`)
                         .on("change",()=>{
                             this.stickyheaddsadaer(genre, input);
-                        })
+                        });
+                    this.svg.selectAll("*").remove();
+                    this.drawLineChart(this.data,toMap);
                 }
                 else{
                     if (genre==="All") {
@@ -401,7 +390,7 @@ export default class DrawLineChart {
                     .text(d)
             }
         })
-
+        //this.svg.selectAll("*").remove();
         this.drawLineChart(this.data,toMap);
     };
 
