@@ -23,6 +23,12 @@ export default class DrawLineChart {
             .style("opacity", 0);
     }
 
+    reDrawChart(genre, input, toMap = false){
+        this.stickyheaddsadaer(genre, input);
+        this.svg.selectAll("*").remove();
+        this.drawLineChart(this.data,toMap);
+    }
+
 
     findMinAndMax(data){
         let min=data[0]["publicationDate"]
@@ -107,7 +113,7 @@ export default class DrawLineChart {
 
     createCheckBox(genre){
         this.colors.push('#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0').toUpperCase())
-        this.fivemax.push(genre)
+        if (!this.fivemax.includes(genre))this.fivemax.push(genre)
         d3.select("#List")
             .append("div")
             .attr("id",`checkbox-${genre}`)
@@ -170,6 +176,7 @@ export default class DrawLineChart {
             }
         })
         for (const [genre, value] of Object.entries(points)) {
+            //console.log(this.colors[this.fivemax.indexOf(genre)],this.fivemax.indexOf(genre))
             this.svg.append("path")
                 .datum(value)
                 .attr("fill", "none")
@@ -295,9 +302,7 @@ export default class DrawLineChart {
             this.stickyheaddsadaer(genre, input);
             d3.select(`#genre-${genre}`)
                 .on("change",()=>{
-                    this.stickyheaddsadaer(genre, input);
-                    this.svg.selectAll("*").remove();
-                    this.drawLineChart(this.data,toMap);
+                    this.reDrawChart(genre,input,toMap)
                 })
         });
 
@@ -340,28 +345,28 @@ export default class DrawLineChart {
                 let genre = document.getElementById('input').value;
                 if (this.allGenre.has(genre) && !this.fivemax.includes(genre)){
                     this.createCheckBox(genre)
-
                     let input = d3.select(`#genre-${genre}`).node();
+                    this.svg.selectAll("*").remove();
                     this.stickyheaddsadaer(genre, input);
+                    this.drawLineChart(this.data,toMap);
                     d3.select(`#genre-${genre}`)
                         .on("change",()=>{
-                            this.stickyheaddsadaer(genre, input);
+                            this.reDrawChart(genre,input,toMap)
+
                         });
-                    this.svg.selectAll("*").remove();
-                    this.drawLineChart(this.data,toMap);
                 }
                 else{
                     if (genre==="All") {
+                        console.log(this.allGenre)
                         this.allGenre.forEach(d =>
                         {
                             if (!this.fivemax.includes(d)) {
-                                this.createCheckBox(d)
-
+                                this.createCheckBox(d);
                                 let input = d3.select(`#genre-${d}`).node();
-                                this.stickyheaddsadaer(d, input);
+                                this.reDrawChart(d,input,toMap)
                                 d3.select(`#genre-${d}`)
                                     .on("change",()=>{
-                                        this.stickyheaddsadaer(d, input);
+                                        this.reDrawChart(d,input,toMap)
                                     })
 
                             }
@@ -386,7 +391,7 @@ export default class DrawLineChart {
                     .text(d)
             }
         })
-
+        this.svg.selectAll("*").remove();
         this.drawLineChart(this.data,toMap);
     };
 
