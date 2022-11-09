@@ -87,10 +87,6 @@ export default class DrawLineChart {
         return maxIndex;
     }
 
-    classement = async () => {
-        let data = await d3.csv("classement.csv");
-    }
-
     stickyheaddsadaer(genre, box) {
         if (box.checked) {
             this.genreToPrint.push(genre);
@@ -339,7 +335,7 @@ export default class DrawLineChart {
         d3.select(".text-container")
             .append("button")
             .attr('type',"submit")
-            .text("Ajouter un genre")
+            .text("Ajouter")
             .on('click',() =>{
                 let genre = document.getElementById('input').value;
                 if (this.allGenre.has(genre) && !this.fivemax.includes(genre)){
@@ -390,7 +386,7 @@ export default class DrawLineChart {
                     .text(d)
             }
         })
-        //this.svg.selectAll("*").remove();
+
         this.drawLineChart(this.data,toMap);
     };
 

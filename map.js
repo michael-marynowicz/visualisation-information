@@ -73,8 +73,6 @@ let map = async (init) => {
     // Le traitement du CSV est réalisé ici
     await locationInfo(init);
     addCircleForInconnu();
-    /*d3.select( "#gene_search_box" )
-        .attr('autocomplete', `source: ${genres}`);*/
 
 
 
