@@ -6,7 +6,7 @@ let width = window.innerWidth; // the width of the svg
 let height = window.innerHeight; // the height of the svg
 let data;
 
-let country = [];
+let countryCodes = [];
 let countryName = [];
 let genres = [];
 let score = [];
@@ -139,8 +139,8 @@ let parseRowCount = (d) => {
 
 function colorMap() {
     var tooltip = addTooltip();
-    country.forEach(code => {
-        let index = country.indexOf(code)
+    countryCodes.forEach(code => {
+        let index = countryCodes.indexOf(code)
         let s = score[index]
         let color = colors[index]
         var countryPath = d3.select("#code" + code);
@@ -201,8 +201,8 @@ function getAllMaxWithoutInconnu(data) {
         if (d.countryCode === "Inconnu") {
             genreOfCountryInconnu.push(d)
         } else {
-            if (!country.includes(d.countryCode) && d.genre !== "Inconnu") {
-                country.push(d.countryCode)
+            if (!countryCodes.includes(d.countryCode) && d.genre !== "Inconnu") {
+                countryCodes.push(d.countryCode)
                 if (colors.length <= data.length) colors.push(genres.includes(d.genre) ? colors[genres.indexOf(d.genre)] : '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0').toUpperCase())
                 genres.push(d.genre)
                 score.push(d.count)
@@ -213,9 +213,9 @@ function getAllMaxWithoutInconnu(data) {
                 if (d.genre === "Inconnu") {
                     genreInconnu.push(d)
                 } else {
-                    let index = country.indexOf(d.countryCode)
+                    let index = countryCodes.indexOf(d.countryCode)
                     if (score[index] < d.count) {
-                        country[index] = d.countryCode
+                        countryCodes[index] = d.countryCode
                         genres[index] = d.genre
                         score[index] = d.count
                     }
@@ -350,7 +350,7 @@ let locationInfo = async (init) => {
 function addCountryWithGenreInconnu() {
     var countryWithNoGenre = [];
     genreInconnu.forEach(d => {
-        if (country.includes(d.countryCode)) {
+        if (countryCodes.includes(d.countryCode)) {
             countryGenreInconnu.push(d.countryCode)
             numbersInconnu.push(d.count)
         } else {
@@ -362,7 +362,7 @@ function addCountryWithGenreInconnu() {
     var color = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0').toUpperCase()
     countryWithNoGenre.forEach(d => {
             countryName.push(d.countryName)
-            country.push(d.countryCode);
+            countryCodes.push(d.countryCode);
             score.push(d.count);
             genres.push(d.genre);
             if (colors.length <= data.length) colors.push(color);

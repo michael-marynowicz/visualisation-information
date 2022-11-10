@@ -16,7 +16,7 @@ export default class DrawLineChart {
 
         this.colors = [];
 
-        this.fivemax=[];
+        this.genreCanPrint=[];
 
         this.div = d3.select("body").append("div")
             .attr("class", "tooltip")
@@ -65,7 +65,7 @@ export default class DrawLineChart {
     applyColor(marks, d) {
         const index = marks.indexOf(d)
         d.genre = this.data[index]["genre"]
-        return this.colors[this.fivemax.indexOf(d.genre)]
+        return this.colors[this.genreCanPrint.indexOf(d.genre)]
     }
 
     find5max(data) {
@@ -106,12 +106,13 @@ export default class DrawLineChart {
         } else {
             this.data = [];
         }
+        console.log(this.genreToPrint,this.genreCanPrint)
     }
 
 
     createCheckBox(genre){
         this.colors.push('#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0').toUpperCase())
-        if (!this.fivemax.includes(genre))this.fivemax.push(genre)
+        if (!this.genreCanPrint.includes(genre))this.genreCanPrint.push(genre)
         d3.select("#List")
             .append("div")
             .attr("id",`checkbox-${genre}`)
@@ -178,7 +179,7 @@ export default class DrawLineChart {
             this.svg.append("path")
                 .datum(value)
                 .attr("fill", "none")
-                .attr("stroke", this.colors[this.fivemax.indexOf(genre)])
+                .attr("stroke", this.colors[this.genreCanPrint.indexOf(genre)])
                 .attr("stroke-width", 1.5)
                 .attr("d", d3.line()
                     .x(d => d.x)
@@ -266,7 +267,7 @@ export default class DrawLineChart {
         this.minMax = this.findMinAndMax(this.data)
         this.data = this.data.filter( d => (d.country === countryCode) && this.allGenre.has(d["genre"]));
         this.copieData = Array.from(this.data);
-        this.fivemax = this.find5max(this.data);
+        this.genreCanPrint = this.find5max(this.data);
 
 
 
@@ -294,7 +295,7 @@ export default class DrawLineChart {
             .attr('id','List')
             .style("margin-left","1rem")
 
-        Array.from(this.fivemax).forEach((genre) => {
+        Array.from(this.genreCanPrint).forEach((genre) => {
             this.createCheckBox(genre)
             let input = d3.select(`#genre-${genre}`).node();
             this.stickyheaddsadaer(genre, input);
@@ -313,7 +314,7 @@ export default class DrawLineChart {
             .style("margin-left","1rem")
             .text("Supprimer la selection")
             .on('click',()=>{
-                this.fivemax.forEach((genre) => {
+                this.genreCanPrint.forEach((genre) => {
                     let input = d3.select(`#genre-${genre}`).node()
                     input.checked=false;
                     this.data=[];
@@ -341,7 +342,7 @@ export default class DrawLineChart {
             .text("Ajouter")
             .on('click',() =>{
                 let genre = document.getElementById('input').value;
-                if (this.allGenre.has(genre) && !this.fivemax.includes(genre)){
+                if (this.allGenre.has(genre) && !this.genreCanPrint.includes(genre)){
                     this.createCheckBox(genre)
                     let input = d3.select(`#genre-${genre}`).node();
                     this.svg.selectAll("*").remove();
@@ -357,7 +358,7 @@ export default class DrawLineChart {
                     if (genre==="All") {
                         this.allGenre.forEach(d =>
                         {
-                            if (!this.fivemax.includes(d)) {
+                            if (!this.genreCanPrint.includes(d)) {
                                 this.createCheckBox(d);
                                 let input = d3.select(`#genre-${d}`).node();
                                 this.stickyheaddsadaer(d, input);
@@ -384,7 +385,7 @@ export default class DrawLineChart {
             .attr('value', 'All')
             .text('All')
         this.allGenre.forEach(d=>{
-            if (!this.fivemax.includes(d)){
+            if (!this.genreCanPrint.includes(d)){
                 d3.select("#programmingLanguages")
                     .append("option")
                     .attr('value', d)
