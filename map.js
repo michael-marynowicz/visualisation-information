@@ -235,7 +235,7 @@ function tooltipInconnu() {
         .style("display", "none");
 
     tooltip.append("polyline") // The rectangle containing the text, it is 210px width and 60 height
-        .attr("points", "0,0 950,0 950,560 ,20 560,0")//.attr("points", "0,0 950,0 950,560 0,560 0,0")
+        .attr("points", "0,0 950,0 950,560 ,0 560,0")//.attr("points", "0,0 950,0 950,560 ,20 560,0")
         .style("fill", "#222b1d")
         .style("stroke", "black")
         .style("opacity", "0.9")

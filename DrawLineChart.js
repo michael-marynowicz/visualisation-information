@@ -8,7 +8,7 @@ export default class DrawLineChart {
 
         this.margin = {left: 50, top: 20, bottom: 20, right: 20}; // the margins of the chart
 
-        this.width = window.innerWidth - 500; // the width of the svg
+        this.width = window.innerWidth -170; // the width of the svg
 
         this.height = window.innerHeight - 304; // the height of the svg
 
