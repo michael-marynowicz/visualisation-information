@@ -222,7 +222,11 @@ export default class DrawLineChart {
 
         this.svg.append('g')
             .attr('transform', `translate(${this.margin.left},0)`)
-            .call(d3.axisLeft(y));
+            .call(d3.axisLeft(y)
+                .tickValues(y.ticks().filter(tick => Number.isInteger(tick)))
+                .tickFormat(d3.format('d')))
+
+
 
         this.svg.append("text")
             .attr("y", this.height/2)
