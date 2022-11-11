@@ -106,7 +106,6 @@ export default class DrawLineChart {
         } else {
             this.data = [];
         }
-        console.log(this.genreToPrint,this.genreCanPrint)
     }
 
 

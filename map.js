@@ -308,7 +308,7 @@ function addCircleForInconnu() {
         })
         .on("mousemove", function (event) {
             var mouse = d3.pointer(event);
-            tooltip.attr("transform", "translate(" + mouse[0] + "," + (mouse[1] - 75) + ")");
+            tooltip.attr("transform", "translate(" + (mouse[0]+15) + "," + (mouse[1] - 75) + ")");
         })
         .on('click', function () {
             let drawLineChart = new DrawLineChart(svg);
