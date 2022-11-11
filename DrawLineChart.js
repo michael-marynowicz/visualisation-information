@@ -246,7 +246,7 @@ export default class DrawLineChart {
                 "translate(" + (this.width/2) + " ," +
                 (this.height + this.margin.top ) + ")")
             .style("text-anchor", "middle")
-            .text("Date");
+            .text("Année");
 
 
 
