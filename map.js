@@ -205,10 +205,11 @@ function getAllMaxWithoutInconnu(data) {
             if (!countryName.includes(d.countryName) && d.genre !== "Inconnu") {
                 countryCodes.push(d.countryCode)
                 if (genres.includes(d.genre)) colors.push(colors[genres.indexOf(d.genre)]);
-                else colors.push(genres.includes(d.genre) ? colors[genres.indexOf(d.genre)] : '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0').toUpperCase())
+                else colors.push('#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0').toUpperCase())
                 genres.push(d.genre)
                 score.push(d.count)
                 countryName.push(d.countryName)
+
 
 
             } else {
@@ -219,10 +220,12 @@ function getAllMaxWithoutInconnu(data) {
                     if (score[index] < d.count) {
                         countryCodes[index] = d.countryCode
                         if (genres.includes(d.genre)) colors[index] = colors[genres.indexOf(d.genre)]
-                        else colors[genres.indexOf(d.genre)] ='#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0').toUpperCase()
+                        else colors[index] ='#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0').toUpperCase()
                         genres[index] = d.genre
                         score[index] = d.count
+
                     }
+
 
                 }
             }
