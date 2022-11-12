@@ -20,7 +20,7 @@ filterGenre <- function(x){
   
 }
 # lecture des fichier csv contenant toutes les données de la db
-albums <- readRDS("/Users/maryno/Desktop/Visu/Project/Wasabi-dataset/albums_all_artists_3000.rds")
+albums <- readRDS("~/Desktop/Visu/Project/traitementR/albums_all_artists_3000.rds")
 
 #creation du tableau avec le genre et le lieu correctement ecrit 
 locationInfo <- albums %>% select(country,genre)
@@ -63,7 +63,7 @@ genreParAnnee <- genreParAnnee %>% group_by(country, genre, publicationDate) %>%
 
 
 
-allLocation <- read.csv("~/Desktop/Visu/Project/Wasabi-dataset/country_lat_long.csv")
+allLocation <- read.csv("~/Desktop/Visu/Project/traitementR/country_lat_long.csv")
 allLocation <- allLocation %>% rename(countryCode = ISO.3166.Country.Code,countryName = Country)
 allLocation <- allLocation %>% mutate(countryCode = str_replace(countryCode, ".*PS.*", "XW"))
 
@@ -93,7 +93,6 @@ classement$genre <- classement$genre %>% replace_na('Inconnu')
 # on regroupe les lignes similaires et on crée une nouvelle colonne contenant la somme
 locationInfo <- locationInfo %>% group_by(countryCode,countryName,genre) %>% summarise(count = n())
 
-write.csv(locationInfo,"/Users/maryno/Desktop/Visu/Project/Wasabi-dataset/locationInfo.csv", row.names = FALSE)
-write.csv(classement,"/Users/maryno/Desktop/Visu/Project/Wasabi-dataset/classement.csv", row.names = FALSE)
-write.csv(genreParAnnee,"/Users/maryno/Desktop/Visu/Project/Wasabi-dataset/genreParAnnee.csv", row.names = FALSE)
+write.csv(locationInfo,"~/Desktop/Visu/Project/traitementR/locationInfo.csv", row.names = FALSE)
+write.csv(genreParAnnee,"~/Desktop/Visu/Project/traitementR/genreParAnnee.csv", row.names = FALSE)
 
